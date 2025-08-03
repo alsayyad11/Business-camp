@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Session – Business Bootcamp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Floating Background -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+    <div class="shape shape-5"></div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle-container">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+      <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-text">NOVA</span>
+        <span class="logo-subtext">Bootcamp</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="hero-section small-header" id="session-header">
+    <div class="hero-bg"><div class="gradient-overlay"></div></div>
+    <div class="container">
+      <div class="hero-content animate-fadeInUp">
+        <h1 class="hero-title" id="session-title">Session Title</h1>
+        <div class="session-meta">
+          <span class="meta-item"><i class="fas fa-user"></i> <span id="session-instructor">Instructor</span></span>
+          <span class="meta-item"><i class="fas fa-calendar"></i> <span id="session-date">Date</span></span>
+        </div>
+        <p class="hero-description" id="session-description">Session description</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="sessions-section">
+    <div class="container content-grid">
+
+      <!-- Left Content -->
+      <div class="content-left animate-fadeInUp">
+        <!-- Presentation -->
+        <div class="pdf-section">
+          <div class="section-header">
+            <h2><i class="fas fa-file-pdf"></i> Session Presentation</h2>
+          </div>
+          <div class="pdf-viewer">
+            <iframe id="presentation-iframe" src="" title="Session Presentation"></iframe>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="pdf-section">
+          <div class="section-header flex-between">
+            <h2><i class="fas fa-file-pdf"></i> Session Summary</h2>
+            <button class="btn-secondary" id="download-summary">
+              <i class="fas fa-download"></i> Download
+            </button>
+          </div>
+          <div class="pdf-viewer">
+            <iframe id="summary-iframe" src="" title="Session Summary"></iframe>
+          </div>
+        </div>
+
+        <!-- Task -->
+        <div class="task-section">
+          <div class="section-header">
+            <h2><i class="fas fa-tasks"></i> Session Task</h2>
+          </div>
+          <div class="task-content" id="task-content">
+            <!-- Dynamic content here -->
+          </div>
+          <div class="task-actions">
+            <a href="#" class="btn-primary" id="task-submit">
+              <span>Submit Assignment</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="content-right animate-fadeInUp">
+        <!-- Videos -->
+        <div class="videos-section">
+          <div class="section-header">
+            <h2><i class="fas fa-video"></i> Recommended Videos</h2>
+          </div>
+          <div class="videos-container" id="videos-container">
+            <!-- Video links -->
+          </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="resources-section">
+          <div class="section-header">
+            <h2><i class="fas fa-link"></i> Additional Resources</h2>
+          </div>
+          <div class="resources-list">
+            <a href="#" class="resource-item"><i class="fas fa-book"></i> Recommended Reading List</a>
+            <a href="#" class="resource-item"><i class="fas fa-tools"></i> Useful Tools and Templates</a>
+            <a href="#" class="resource-item"><i class="fas fa-comments"></i> Discussion Forum</a>
+            <a href="#" class="resource-item"><i class="fas fa-chart-bar"></i> Progress Tracker</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
