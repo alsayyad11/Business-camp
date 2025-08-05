@@ -513,31 +513,31 @@ class NovaBootcamp {
         title: "Introduction to Entrepreneurship",
         instructor: "Abdallah Altaqawy",
         date: "August 5, 2025",
-        duration: "2 hours",
+        duration: "3 hours",
         level: "Beginner",
         description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
         coverImage: "./assets/images/intro .png",
-        presentationPdf: "./assets/files/intro to entrepreneurship.pdf",
-        summaryPdf: "./assets/files/Marketing.pdf",
+        presentationPdf: "./assets/files/01- Intro to Business.pdf",
+        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
         recommendedVideos: [
           {
             title: "What is Entrepreneurship?",
-            url: "https://www.youtube.com/watch?v=ZkPBvLF3N2c",
-            duration: "06:10",
+            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
+            duration: "12:15",
             description: "Understanding the fundamentals of entrepreneurship and business creation."
           },
           {
-            title: "Entrepreneurial Mindset",
-            url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            title: "Intro to entrepreneurship",
+            url: "https://youtu.be/gGzxpIfEUc8?si=AXgqsteGrWHujHwT",
             duration: "12:45",
             description: "Developing the right mindset for successful entrepreneurship."
           },
         ],
-        task: "Develop a SWOT analysis for a hypothetical startup in the tech industry. Identify key strengths, weaknesses, opportunities, and threats. Submit a 2-page report with actionable insights and recommendations.",
+        task: "No Task Required.",
         resources: [
-          { name: "Startup Toolkit", url: "#", icon: "fas fa-toolbox" },
-          { name: "Business Model Canvas", url: "#", icon: "fas fa-chart-bar" },
-          { name: "Market Research Guide", url: "#", icon: "fas fa-search" }
+          { name: "What is entrepreneurship", url: "https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9_%D8%A3%D8%B9%D9%85%D8%A7%D9%84", icon: "fas fa-toolbox" },
+          { name: "10 Differences Between Entrepreneurship and Business Management", url: "https://businessbelarabi.com/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/", icon: "fas fa-chart-bar" },
+          { name: "What are the types of entrepreneurship and what type of entrepreneur are you?", url: "https://www.for9a.com/learn/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D9%88%D8%A3%D9%8A-%D9%86%D9%88%D8%B9-%D9%85%D9%86-%D8%B1%D9%88%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A3%D9%86%D8%AA", icon: "fas fa-search" }
         ]
       },
       {
@@ -1496,4 +1496,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
+
 });
