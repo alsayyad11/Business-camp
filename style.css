@@ -1,1937 +1,1595 @@
-/* Enhanced Global Styles with Modern Variables */
-:root {
-    /* Primary Colors */
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #f093fb;
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+// Enhanced JavaScript with Modern Features and Animations
+class NovaBootcamp {
+  constructor() {
+    this.isLoading = true;
+    this.scrollPosition = 0;
+    this.intersectionObserver = null;
+    this.init();
+  }
+
+  init() {
+    this.setupEventListeners();
+    this.initializeTheme();
+    this.startLoadingSequence();
+    this.setupScrollAnimations();
+    this.setupParallaxEffects();
+    this.initializeCounters();
+    this.setupNavigation();
+    this.loadContent();
+  }
+
+  // Loading Screen Animation
+  startLoadingSequence() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingProgress = document.querySelector('.loading-progress');
     
-    /* Text Colors */
-    --text-primary-light: #2d3748;
-    --text-secondary-light: #4a5568;
-    --text-primary-dark: #f7fafc;
-    --text-secondary-dark: #e2e8f0;
+    if (!loadingScreen) return;
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random() * 15;
+      if (progress > 100) progress = 100;
+      
+      if (loadingProgress) {
+        loadingProgress.style.width = `${progress}%`;
+      }
+      
+      if (progress >= 100) {
+        clearInterval(interval);
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+          this.isLoading = false;
+          this.triggerEntranceAnimations();
+        }, 500);
+      }
+    }, 150);
+  }
+
+  // Entrance Animations
+  triggerEntranceAnimations() {
+    const elements = document.querySelectorAll('.animate-fadeInUp, .animate-fadeInRight');
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.style.animationPlayState = 'running';
+      }, index * 100);
+    });
+
+    // Start counter animations
+    this.startCounterAnimations();
+  }
+
+  // Theme Management
+  initializeTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
     
-    /* Background Colors */
-    --bg-primary-light: #ffffff;
-    --bg-secondary-light: #f8fafc;
-    --bg-primary-dark: #1a202c;
-    --bg-secondary-dark: #2d3748;
-    
-    /* Card Colors */
-    --card-bg-light: #ffffff;
-    --card-bg-dark: #2d3748;
-    --card-hover-light: #f8fafc;
-    --card-hover-dark: #4a5568;
-    
-    /* Border Colors */
-    --border-light: #e2e8f0;
-    --border-dark: #4a5568;
-    --border-hover-light: #cbd5e0;
-    --border-hover-dark: #718096;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
-    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-    --shadow-colored: 0 10px 40px rgba(102, 126, 234, 0.3);
-    
-    /* Glass Effect */
-    --glass-bg-light: rgba(255, 255, 255, 0.95);
-    --glass-bg-dark: rgba(45, 55, 72, 0.95);
-    --glass-border-light: rgba(255, 255, 255, 0.2);
-    --glass-border-dark: rgba(255, 255, 255, 0.1);
-    
-    /* Animation Timing */
-    --transition-fast: 0.2s ease;
-    --transition-medium: 0.3s ease;
-    --transition-slow: 0.5s ease;
-    --transition-bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    // Check saved theme or system preference
+    const savedTheme = this.getSavedTheme();
+    this.applyTheme(savedTheme);
 
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-::selection {
-    background: var(--primary-color);
-    color: white;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-secondary-light);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    color: var(--text-primary-light);
-    background: var(--bg-primary-light);
-    transition: all var(--transition-medium);
-    overflow-x: hidden;
-}
-
-body.dark-mode {
-    color: var(--text-primary-dark);
-    background: var(--bg-primary-dark);
-}
-
-/* Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--gradient-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loading-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loading-content {
-    text-align: center;
-    color: white;
-}
-
-.loading-logo {
-    margin-bottom: 30px;
-}
-
-.loading-text {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 3px;
-    display: block;
-    margin-bottom: 20px;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-.loading-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-radius: 50%;
-    animation: bounce 1.4s ease-in-out infinite both;
-}
-
-.dot:nth-child(1) { animation-delay: -0.32s; }
-.dot:nth-child(2) { animation-delay: -0.16s; }
-
-.loading-bar {
-    width: 200px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.loading-progress {
-    width: 0%;
-    height: 100%;
-    background: white;
-    border-radius: 2px;
-    animation: loading 3s ease-out forwards;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-@keyframes bounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
-}
-
-@keyframes loading {
-    to { width: 100%; }
-}
-
-/* Floating Shapes Background */
-.floating-shapes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    background: var(--gradient-primary);
-    opacity: 0.1;
-    animation: float 20s ease-in-out infinite;
-}
-
-.shape-1 {
-    width: 80px;
-    height: 80px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.shape-2 {
-    width: 120px;
-    height: 120px;
-    top: 60%;
-    right: 15%;
-    animation-delay: -5s;
-}
-
-.shape-3 {
-    width: 60px;
-    height: 60px;
-    bottom: 30%;
-    left: 20%;
-    animation-delay: -10s;
-}
-
-.shape-4 {
-    width: 100px;
-    height: 100px;
-    top: 40%;
-    right: 40%;
-    animation-delay: -15s;
-}
-
-.shape-5 {
-    width: 40px;
-    height: 40px;
-    bottom: 20%;
-    right: 30%;
-    animation-delay: -7s;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        this.toggleTheme();
+      });
     }
-    33% {
-        transform: translateY(-30px) rotate(120deg);
+  }
+
+  getSavedTheme() {
+    // Use in-memory storage instead of localStorage for artifacts
+    if (window.novaSavedTheme) return window.novaSavedTheme;
+    
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark-mode';
     }
-    66% {
-        transform: translateY(20px) rotate(240deg);
+    return 'light-mode';
+  }
+
+  applyTheme(theme) {
+    document.body.className = theme;
+    window.novaSavedTheme = theme; // Use in-memory storage
+    
+    if (theme === 'dark-mode') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
     }
-}
+  }
 
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border-light);
-    z-index: 1000;
-    transition: all var(--transition-medium);
-    transform: translateY(-100%);
-    animation: slideDown 0.5s ease forwards;
-    animation-delay: 1s;
-}
+  toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+    const newTheme = currentTheme === 'dark-mode' ? 'light-mode' : 'dark-mode';
+    
+    this.applyTheme(newTheme);
+    this.animateThemeTransition();
+  }
 
-body.dark-mode .navbar {
-    background: var(--glass-bg-dark);
-    border-bottom-color: var(--glass-border-dark);
-}
+  animateThemeTransition() {
+    document.body.style.transition = 'all 0.3s ease';
+    setTimeout(() => {
+      document.body.style.transition = '';
+    }, 300);
+  }
 
-.navbar.scrolled {
-    background: var(--card-bg-light);
-    box-shadow: var(--shadow-md);
-}
+  // Navigation
+  setupNavigation() {
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-body.dark-mode .navbar.scrolled {
-    background: var(--card-bg-dark);
-}
+    // Navbar scroll effect
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (navbar) {
+        if (scrollTop > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
 
-@keyframes slideDown {
-    to { transform: translateY(0); }
-}
+      lastScrollTop = scrollTop;
+    });
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-}
-
-.logo-text {
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 1px;
-}
-
-.logo-subtext {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-secondary-light);
-}
-
-body.dark-mode .logo-subtext {
-    color: var(--text-secondary-dark);
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--text-primary-light);
-    font-weight: 500;
-    position: relative;
-    transition: color var(--transition-medium);
-}
-
-body.dark-mode .nav-link {
-    color: var(--text-primary-dark);
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    transition: width var(--transition-medium);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.nav-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.theme-toggle {
-    background: var(--card-bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-medium);
-    position: relative;
-    overflow: hidden;
-}
-
-body.dark-mode .theme-toggle {
-    background: var(--card-bg-dark);
-    border-color: var(--border-dark);
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-md);
-}
-
-.sun-icon, .moon-icon {
-    position: absolute;
-    font-size: 1.2rem;
-    transition: all var(--transition-medium);
-}
-
-.sun-icon {
-    color: #f59e0b;
-    opacity: 1;
-    transform: rotate(0deg);
-}
-
-.moon-icon {
-    color: #6366f1;
-    opacity: 0;
-    transform: rotate(90deg);
-}
-
-body.dark-mode .sun-icon {
-    opacity: 0;
-    transform: rotate(-90deg);
-}
-
-body.dark-mode .moon-icon {
-    opacity: 1;
-    transform: rotate(0deg);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    gap: 3px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-primary-light);
-    transition: all var(--transition-medium);
-}
-
-body.dark-mode .hamburger span {
-    background: var(--text-primary-dark);
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Scrolling Banner */
-.scrolling-banner {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 12px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    margin-top: 70px;
-}
-
-.scrolling-text {
-    display: inline-block;
-    animation: scroll 30s linear infinite;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-
-.scrolling-text span {
-    display: inline-block;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-/* Animation Classes */
-.animate-fadeInUp {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.animate-fadeInUp:nth-child(1) { animation-delay: 0.1s; }
-.animate-fadeInUp:nth-child(2) { animation-delay: 0.2s; }
-.animate-fadeInUp:nth-child(3) { animation-delay: 0.3s; }
-.animate-fadeInUp:nth-child(4) { animation-delay: 0.4s; }
-.animate-fadeInUp:nth-child(5) { animation-delay: 0.5s; }
-
-.animate-fadeInRight {
-    opacity: 0;
-    transform: translateX(50px);
-    animation: fadeInRight 0.8s ease forwards;
-    animation-delay: 0.3s;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    // Mobile menu toggle
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
     }
-}
 
-@keyframes fadeInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    // Smooth scroll for nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            this.smoothScrollTo(target);
+            if (navMenu && navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+              hamburger.classList.remove('active');
+              document.body.classList.remove('menu-open');
+            }
+          }
+        }
+      });
+    });
+  }
+
+  smoothScrollTo(target) {
+    const targetPosition = target.offsetTop - 70; // Account for navbar height
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000;
+    let start = null;
+
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const ease = this.easeInOutCubic(progress / duration);
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }
+
+  easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+  }
+
+  // Scroll Animations
+  setupScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    this.intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.animateElement(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animatable elements
+    const animatableElements = document.querySelectorAll(`
+      .instructor-card, .session-card, .stat-item, .section-header,
+      .hero-badge, .cta-content, .footer-content, .youtube-channel-card
+    `);
+
+    animatableElements.forEach(el => {
+      this.intersectionObserver.observe(el);
+    });
+  }
+
+  animateElement(element) {
+    if (element.classList.contains('animated')) return;
+    
+    element.classList.add('animated');
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    setTimeout(() => {
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+    }, 100);
+  }
+
+  // Counter Animations
+  initializeCounters() {
+    this.counters = document.querySelectorAll('.stat-item');
+    this.counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          this.animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.7 });
+
+    this.counters.forEach(counter => {
+      this.counterObserver.observe(counter);
+    });
+  }
+
+  startCounterAnimations() {
+    // Delay counter animations until after loading
+    setTimeout(() => {
+      this.counters.forEach(counter => {
+        if (this.isElementInViewport(counter)) {
+          this.animateCounter(counter);
+        }
+      });
+    }, 1000);
+  }
+
+  animateCounter(counterElement) {
+    if (counterElement.classList.contains('counted')) return;
+    
+    counterElement.classList.add('counted');
+    const target = parseFloat(counterElement.dataset.counter);
+    const numberElement = counterElement.querySelector('.stat-number');
+    
+    if (!numberElement || !target) return;
+
+    let current = 0;
+    const increment = target / 60; // 60 frames for 1 second
+    
+    const updateCounter = () => {
+      current += increment;
+      
+      if (current >= target) {
+        if (target === 4.9) {
+          numberElement.textContent = '4.9';
+        } else if (target === 24) {
+          numberElement.textContent = '24/7';
+        } else {
+          numberElement.textContent = Math.ceil(target) + (target >= 95 ? '%' : '+');
+        }
+        return;
+      }
+      
+      if (target === 4.9) {
+        numberElement.textContent = current.toFixed(1);
+      } else if (target === 24) {
+        numberElement.textContent = Math.floor(current) + '/7';
+      } else {
+        numberElement.textContent = Math.floor(current) + (target >= 95 ? '%' : '+');
+      }
+      
+      requestAnimationFrame(updateCounter);
+    };
+    
+    updateCounter();
+  }
+
+  // Parallax Effects
+  setupParallaxEffects() {
+    const shapes = document.querySelectorAll('.shape');
+    const heroVisual = document.querySelector('.hero-visual');
+    
+    window.addEventListener('scroll', () => {
+      if (this.isLoading) return;
+      
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      // Animate floating shapes
+      shapes.forEach((shape, index) => {
+        const speed = 0.2 + (index * 0.1);
+        shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+      });
+
+      // Parallax hero visual
+      if (heroVisual) {
+        heroVisual.style.transform = `translateY(${rate * 0.3}px)`;
+      }
+    });
+  }
+
+  // Back to Top Button
+  setupBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    if (backToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        this.smoothScrollTo(document.body);
+      });
     }
-}
-
-/* Hero Section */
-.hero-section {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    opacity: 0.05;
-}
-
-body.dark-mode .hero-bg {
-    opacity: 0.1;
-}
-
-.gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border-light);
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    transition: all var(--transition-medium);
-}
-
-body.dark-mode .hero-badge {
-    background: var(--glass-bg-dark);
-    border-color: var(--glass-border-dark);
-}
-
-.hero-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.hero-badge i {
-    font-size: 1rem;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.gradient-text {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.title-decoration {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--gradient-secondary);
-    border-radius: 2px;
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    color: var(--text-secondary-light);
-    margin-bottom: 3rem;
-    line-height: 1.8;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.dark-mode .hero-description {
-    color: var(--text-secondary-dark);
-}
-
-/* Stats Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.stat-item {
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border-light);
-    border-radius: 20px;
-    padding: 2rem 1.5rem;
-    transition: all var(--transition-medium);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-body.dark-mode .stat-item {
-    background: var(--glass-bg-dark);
-    border-color: var(--glass-border-dark);
-}
-
-.stat-item:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-colored);
-    border-color: var(--primary-color);
-}
-
-.stat-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.stat-icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-.stat-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary-light);
-    font-weight: 500;
-}
-
-body.dark-mode .stat-label {
-    color: var(--text-secondary-dark);
-}
-
-/* Hero Actions */
-.hero-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all var(--transition-medium);
-    position: relative;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-colored);
-}
-
-.btn-primary:hover::before {
-    left: 100%;
-}
-
-.btn-primary i {
-    transition: transform var(--transition-medium);
-}
-
-.btn-primary:hover i {
-    transform: translateX(5px);
-}
-
-.btn-play {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition-medium);
-}
-
-.btn-play:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-}
-
-.play-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-medium);
-}
-
-.play-icon i {
-    color: white;
-    font-size: 1rem;
-    margin-left: 2px;
-}
-
-.btn-play:hover .play-icon {
-    background: white;
-}
-
-.btn-play:hover .play-icon i {
-    color: var(--primary-color);
-}
-
-/* Hero Visual */
-.hero-visual {
-    position: absolute;
-    right: -10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 400px;
-    z-index: 1;
-}
-
-.hero-card {
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border-light);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: var(--shadow-xl);
-}
-
-body.dark-mode .hero-card {
-    background: var(--glass-bg-dark);
-    border-color: var(--glass-border-dark);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.card-dots {
-    display: flex;
-    gap: 8px;
-}
-
-.card-dots span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    opacity: 0.3;
-}
-
-.card-dots span:first-child {
-    background: #ef4444;
-    opacity: 1;
-}
-
-.card-dots span:nth-child(2) {
-    background: #f59e0b;
-    opacity: 1;
-}
-
-.card-dots span:nth-child(3) {
-    background: #10b981;
-    opacity: 1;
-}
-
-.progress-item {
-    margin-bottom: 20px;
-}
-
-.progress-item span {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-primary-light);
-}
-
-body.dark-mode .progress-item span {
-    color: var(--text-primary-dark);
-}
-
-.progress-bar {
-    height: 8px;
-    background: var(--border-light);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-body.dark-mode .progress-bar {
-    background: var(--border-dark);
-}
-
-.progress {
-    height: 100%;
-    background: var(--gradient-primary);
-    border-radius: 4px;
-    width: var(--width);
-    animation: progressAnimation 2s ease-out;
-    animation-delay: 1s;
-    animation-fill-mode: both;
-    transform: translateX(-100%);
-}
-
-@keyframes progressAnimation {
-    to { transform: translateX(0); }
-}
-
-/* Section Styles */
-section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-badge {
-    display: inline-block;
-    background: var(--gradient-primary);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.section-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.section-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary-light);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-body.dark-mode .section-description {
-    color: var(--text-secondary-dark);
-}
-
-/* Instructors Section */
-.instructors-section {
-    background: var(--bg-secondary-light);
-}
-
-body.dark-mode .instructors-section {
-    background: var(--bg-secondary-dark);
-}
-
-.instructors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.instructor-card {
-    background: var(--card-bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    transition: all var(--transition-medium);
-    position: relative;
-    overflow: hidden;
-}
-
-body.dark-mode .instructor-card {
-    background: var(--card-bg-dark);
-    border-color: var(--border-dark);
-}
-
-.instructor-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: transform var(--transition-medium);
-}
-
-.instructor-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-}
-
-.instructor-card:hover::before {
-    transform: scaleX(1);
-}
-
-.instructor-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1.5rem;
-    border: 4px solid var(--primary-color);
-    transition: all var(--transition-medium);
-}
-
-.instructor-card:hover img {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.2);
-}
-
-.instructor-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary-light);
-}
-
-body.dark-mode .instructor-card h3 {
-    color: var(--text-primary-dark);
-}
-
-.instructor-card p {
-    color: var(--text-secondary-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-body.dark-mode .instructor-card p {
-    color: var(--text-secondary-dark);
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--bg-secondary-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary-light);
-    transition: all var(--transition-medium);
-}
-
-body.dark-mode .social-links a {
-    background: var(--bg-secondary-dark);
-    color: var(--text-secondary-dark);
-}
-
-.social-links a:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* Sessions Section */
-.sessions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.session-card {
-    background: var(--card-bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all var(--transition-medium);
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-}
-
-body.dark-mode .session-card {
-    background: var(--card-bg-dark);
-    border-color: var(--border-dark);
-}
-
-.session-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity var(--transition-medium);
-    z-index: 1;
-}
-
-.session-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-}
-
-.session-card:hover::before {
-    opacity: 0.05;
-}
-
-.session-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    transition: transform var(--transition-medium);
-}
-
-.session-card:hover img {
-    transform: scale(1.1);
-}
-
-.session-card-content {
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.session-card-content h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-primary-light);
-    text-align: left;
-}
-
-body.dark-mode .session-card-content h3 {
-    color: var(--text-primary-dark);
-}
-
-.session-card-content p {
-    color: var(--text-secondary-light);
-    line-height: 1.6;
-    text-align: left;
-    margin: 0;
-}
-
-body.dark-mode .session-card-content p {
-    color: var(--text-secondary-dark);
-}
-
-/* CTA Section */
-.cta-section {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-}
-
-.cta-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-}
-
-.cta-icon {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 2rem auto;
-    backdrop-filter: blur(10px);
-}
-
-.cta-icon i {
-    font-size: 2rem;
-    color: white;
-}
-
-.cta-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-
-.cta-description {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-features {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-}
-
-.feature-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    font-weight: 600;
-}
-
-.feature-item i {
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-}
-
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    color: var(--primary-color);
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all var(--transition-medium);
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: transparent;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-secondary i {
-    transition: transform var(--transition-medium);
-}
-
-.btn-secondary:hover i {
-    transform: translateX(5px);
-}
-
-/* Footer */
-.footer {
-    background: var(--bg-primary-dark);
-    color: var(--text-primary-dark);
-    padding: 3rem 0 2rem 0;
-}
-
-body.dark-mode .footer {
-    background: #000;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
-}
-
-.footer-main {
-    text-align: left;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-    margin-bottom: 1rem;
-}
-
-.footer-description {
-    color: var(--text-secondary-dark);
-    line-height: 1.7;
-    max-width: 400px;
-}
-
-.footer-connect h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary-dark);
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    width: 50px;
-    height: 50px;
-    background: var(--bg-secondary-dark);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary-dark);
-    text-decoration: none;
-    transition: all var(--transition-medium);
-    position: relative;
-    overflow: hidden;
-}
-
-.social-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity var(--transition-medium);
-}
-
-.social-link:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.social-link:hover::before {
-    opacity: 1;
-}
-
-.social-link i {
-    position: relative;
-    z-index: 2;
-    font-size: 1.3rem;
-    transition: color var(--transition-medium);
-}
-
-.social-link:hover i {
-    color: white;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-dark);
-    color: var(--text-secondary-dark);
-}
-
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-primary);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all var(--transition-medium);
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-colored);
-}
-
-/* Session Page Styles */
-.session-nav {
-    background: var(--glass-bg-light);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-light);
-    padding: 1rem 0;
-    position: sticky;
-    top: 70px;
-    z-index: 999;
-}
-
-body.dark-mode .session-nav {
-    background: var(--glass-bg-dark);
-    border-bottom-color: var(--border-dark);
-}
-
-.back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all var(--transition-medium);
-}
-
-.back-link:hover {
-    color: var(--secondary-color);
-    transform: translateX(-5px);
-}
-
-.session-header {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 5rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.session-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-    background-size: 50px 50px;
-    opacity: 0.3;
-}
-
-.session-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
+  }
+
+  // Event Listeners
+  setupEventListeners() {
+    // Play video button
+    const playButton = document.getElementById('play-video');
+    if (playButton) {
+      playButton.addEventListener('click', () => {
+        this.showVideoModal();
+      });
+    }
+
+    // Setup back to top
+    this.setupBackToTop();
+
+    // Window resize handler
+    window.addEventListener('resize', this.debounce(() => {
+      this.handleResize();
+    }, 250));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeModals();
+      }
+    });
+  }
+
+  // Video Modal
+  showVideoModal() {
+    const modal = document.createElement('div');
+    modal.className = 'video-modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    document.body.classList.add('modal-open');
+
+    // Animate modal in
+    setTimeout(() => {
+      modal.classList.add('active');
+    }, 10);
+
+    // Close modal handlers
+    const closeBtn = modal.querySelector('.modal-close');
+    closeBtn.addEventListener('click', () => {
+      this.closeVideoModal(modal);
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        this.closeVideoModal(modal);
+      }
+    });
+  }
+
+  closeVideoModal(modal) {
+    modal.classList.remove('active');
+    setTimeout(() => {
+      document.body.removeChild(modal);
+      document.body.classList.remove('modal-open');
+    }, 300);
+  }
+
+  closeModals() {
+    const modals = document.querySelectorAll('.video-modal');
+    modals.forEach(modal => {
+      this.closeVideoModal(modal);
+    });
+  }
+
+  // Content Loading
+  loadContent() {
+    if (this.isHomePage()) {
+      this.loadInstructors();
+      this.loadSessions();
+      this.loadYouTubeChannels();
+    } else if (this.isSessionPage()) {
+      this.loadSessionPage();
+    }
+  }
+
+  isHomePage() {
+    return window.location.pathname.includes('index.html') || 
+           window.location.pathname === '/' ||
+           window.location.pathname === '';
+  }
+
+  isSessionPage() {
+    return window.location.pathname.includes('session.html');
+  }
+
+  // Instructors Data
+  getInstructorsData() {
+    return [
+      {
+        id: 1,
+        name: "Abdallah Altaqawy",
+        bio: "A Business graduate from Mansoura University. Currently the Head of the Business Committee at Breakin Point and Founder of Cuppy startup. I've participated in various local and international competitions. Passionate about innovation and building impactful startups.",
+        image: "./assets/images/abdallah.jpg",
+        skills: ["Business Strategy", "Startup Development", "Innovation"],
+        social: {
+          facebook: "https://www.facebook.com/share/16km663qnL/",
+          linkedin: "https://www.linkedin.com/in/abdullah-altaqawy-94976b285/",
+        },
+      },
+      {
+        id: 2,
+        name: "Ahmed M Alsayyad",
+        bio: "Hacker for fun.",
+        image: "./assets/images/hunter1.jpg",
+        skills: ["Cybersecurity"],
+        social: {
+          facebook: "https://www.facebook.com/profile.php?id=100058504338456",
+          linkedin: "https://www.linkedin.com/in/alsayyad11/",
+        },
+      },
+      {
+        id: 3,
+        name: "Hoda Reda",
+        bio: "An Electronics and Communications Engineering student, currently Head of PR at Breakin Point and a Business Committee Supervisor. I'm passionate about Marketing, especially Sales, and I love applying what I learn in real-world projects. I'm also one of the co-founders of CUPPY and Sensopal.",
+        image: "./assets/images/hoda.jpg",
+        skills: ["Marketing", "Sales", "Public Relations"],
+        social: {
+          facebook: "https://www.facebook.com/share/16GiCTMHbi/",
+          linkedin: "https://www.linkedin.com/in/hoda-reda-6a58ab281/",
+        },
+      },
+      {
+        id: 4,
+        name: "Manar Ashraf",
+        bio: "An Electronics & Communications student currently working as a Business Supervisor at Breakin point. Passionate about data analysis and data science, I've honed my skills through multiple business camps and competitions that fueled both my technical growth and personal development.",
+        image: "./assets/images/manar.jpeg",
+        skills: ["Data Analysis", "Data Science", "Business Intelligence"],
+        social: {
+          facebook: "https://www.facebook.com/profile.php?id=100082033623873&mibextid=2JQ9oc",
+          linkedin: "http://www.linkedin.com/in/manar-ashraf-63b556293",
+        },
+      },
+      {
+        id: 5,
+        name: "Basant Adel",
+        bio: "A Business graduate specialized in Accounting and an Instructor at Breakin Point's Business Committee. I'm passionate about entrepreneurship, marketing, and turning ideas into impactful projects. I founded Piny Candles, a handcrafted brand reflecting warmth and creativity.",
+        image: "./assets/images/basant.jpg",
+        skills: ["Accounting", "Entrepreneurship", "Brand Development"],
+        social: {
+          facebook: "https://www.facebook.com/share/19DRp9Byii/",
+          linkedin: "https://www.linkedin.com/in/basant-adel-48254530b",
+        },
+      },
+    ];
+  }
+
+  // Sessions Data
+  getSessionsData() {
+    return [
+      {
+        id: 1,
+        title: "Introduction to Entrepreneurship",
+        instructor: "Abdallah Altaqawy",
+        date: "August 5, 2025",
+        duration: "3 hours",
+        level: "Beginner",
+        description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
+        coverImage: "./assets/images/intro .png",
+        presentationPdf: "./assets/files/01- Intro to Business.pdf",
+        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
+        recommendedVideos: [
+          {
+            title: "What is Entrepreneurship?",
+            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
+            duration: "12:15",
+            description: "Understanding the fundamentals of entrepreneurship and business creation."
+          },
+          {
+            title: "Intro to entrepreneurship",
+            url: "https://youtu.be/gGzxpIfEUc8?si=AXgqsteGrWHujHwT",
+            duration: "12:45",
+            description: "Developing the right mindset for successful entrepreneurship."
+          },
+        ],
+        task: "No Task Required.",
+        resources: [
+          { name: "What is entrepreneurship", url: "https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9_%D8%A3%D8%B9%D9%85%D8%A7%D9%84", icon: "fas fa-toolbox" },
+          { name: "10 Differences Between Entrepreneurship and Business Management", url: "https://businessbelarabi.com/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/", icon: "fas fa-chart-bar" },
+          { name: "What are the types of entrepreneurship and what type of entrepreneur are you?", url: "https://www.for9a.com/learn/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D9%88%D8%A3%D9%8A-%D9%86%D9%88%D8%B9-%D9%85%D9%86-%D8%B1%D9%88%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A3%D9%86%D8%AA", icon: "fas fa-search" }
+        ]
+      },
+      {
+        id: 2,
+        title: "Digital Marketing Fundamentals",
+        instructor: "Abdallah Altaqawy",
+        date: "August 12, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Master the essentials of digital marketing including SEO, social media marketing, content strategy, and analytics to grow your business online.",
+        coverImage: "./assets/images/intro .png",
+        presentationPdf: "./assets/files/marketing-fundamentals.pdf",
+        summaryPdf: "./assets/files/marketing-summary.pdf",
+        recommendedVideos: [
+          {
+            title: "Digital Marketing Strategy",
+            url: "https://www.youtube.com/watch?v=example1",
+            duration: "15:30",
+            description: "Building an effective digital marketing strategy."
+          }
+        ],
+        task: "Create a comprehensive digital marketing plan for a small business, including target audience analysis, channel selection, and success metrics.",
+        resources: [
+          { name: "Marketing Calendar Template", url: "#", icon: "fas fa-calendar" },
+          { name: "Analytics Dashboard", url: "#", icon: "fas fa-chart-line" }
+        ]
+      }
+    ];
+  }
+
+  // YouTube Channels Data
+  getYouTubeChannelsData() {
+    return [
+      {
+        id: 1,
+        name: "Business Channel 1",
+        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        avatar: "./assets/images/abdallah.jpg",
+        url: "https://www.youtube.com/@placeholder1"
+      },
+      {
+        id: 2,
+        name: "Marketing Mastery",
+        description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
+        avatar: "./assets/images/hoda.jpg",
+        url: "https://www.youtube.com/@placeholder2"
+      },
+      {
+        id: 3,
+        name: "Finance & Investment",
+        description: "Master financial planning, investment strategies, and money management for business success.",
+        avatar: "./assets/images/basant.jpg",
+        url: "https://www.youtube.com/@placeholder3"
+      },
+      {
+        id: 4,
+        name: "Tech Startup Hub",
+        description: "Discover the latest trends in technology startups and innovation in the digital world.",
+        avatar: "./assets/images/manar.jpeg",
+        url: "https://www.youtube.com/@placeholder4"
+      },
+      {
+        id: 5,
+        name: "Leadership Skills",
+        description: "Develop your leadership abilities and learn how to manage teams effectively.",
+        avatar: "./assets/images/hunter1.jpg",
+        url: "https://www.youtube.com/@placeholder5"
+      },
+      {
+        id: 6,
+        name: "Sales Excellence",
+        description: "Master the art of selling and learn proven techniques to boost your sales performance.",
+        avatar: "./assets/images/girl.png",
+        url: "https://www.youtube.com/@placeholder6"
+      }
+    ];
+  }
+
+  // Load Instructors
+  loadInstructors() {
+    const instructorsGrid = document.getElementById('instructors-grid');
+    if (!instructorsGrid) return;
+
+    const instructors = this.getInstructorsData();
+    
+    instructorsGrid.innerHTML = instructors.map((instructor, index) => `
+      <div class="instructor-card" style="animation-delay: ${index * 0.1}s">
+        <img src="${instructor.image}" alt="${instructor.name}" loading="lazy">
+        <h3>${instructor.name}</h3>
+        <p>${instructor.bio}</p>
+        ${instructor.skills ? `
+          <div class="skills">
+            ${instructor.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+          </div>
+        ` : ''}
+        <div class="social-links">
+          <a href="${instructor.social.facebook}" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="${instructor.social.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    `).join('');
+
+    // Add stagger animation
+    this.staggerAnimation('.instructor-card', 200);
+  }
+
+  // Load Sessions
+  loadSessions() {
+    const sessionsGrid = document.getElementById('sessions-grid');
+    if (!sessionsGrid) return;
+
+    const sessions = this.getSessionsData();
+    
+    sessionsGrid.innerHTML = sessions.map((session, index) => `
+      <a href="session.html?id=${session.id}" class="session-card" style="animation-delay: ${index * 0.1}s">
+        <img src="${session.coverImage}" alt="${session.title}" loading="lazy">
+        <div class="session-card-content">
+          <div class="session-meta">
+            <span class="level-badge ${session.level.toLowerCase()}">${session.level}</span>
+            <span class="duration">${session.duration}</span>
+          </div>
+          <h3>${session.title}</h3>
+          <p class="instructor">${session.instructor}</p>
+          <p class="date">${session.date}</p>
+        </div>
+      </a>
+    `).join('');
+
+    // Add stagger animation
+    this.staggerAnimation('.session-card', 200);
+  }
+
+  // Load YouTube Channels
+  loadYouTubeChannels() {
+    const youtubeChannelsGrid = document.getElementById('youtube-channels-grid');
+    if (!youtubeChannelsGrid) return;
+
+    const channels = this.getYouTubeChannelsData();
+    
+    youtubeChannelsGrid.innerHTML = channels.map((channel, index) => `
+      <a href="${channel.url}" target="_blank" rel="noopener" class="youtube-channel-card" style="animation-delay: ${index * 0.1}s">
+        <div class="youtube-channel-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="youtube-channel-avatar">
+          <img src="${channel.avatar}" alt="${channel.name}" loading="lazy">
+        </div>
+        <div class="youtube-channel-info">
+          <h3 class="youtube-channel-name">${channel.name}</h3>
+          <p class="youtube-channel-description">${channel.description}</p>
+        </div>
+      </a>
+    `).join('');
+
+    // Add stagger animation
+    this.staggerAnimation('.youtube-channel-card', 200);
+  }
+
+  // Session Page
+  loadSessionPage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = parseInt(urlParams.get('id'));
+    const sessions = this.getSessionsData();
+    const session = sessions.find(s => s.id === sessionId);
+
+    if (!session) {
+      window.location.href = 'index.html';
+      return;
+    }
+
+    // Update page content
+    this.updateElement('session-title', session.title);
+    this.updateElement('session-instructor', session.instructor);
+    this.updateElement('session-date', session.date);
+    this.updateElement('session-description', session.description);
+
+    // Update PDFs
+    this.updatePDF('presentation-iframe', session.presentationPdf);
+    this.updatePDF('summary-iframe', session.summaryPdf);
+
+    // Setup download button
+    const downloadBtn = document.getElementById('download-summary');
+    if (downloadBtn) {
+      downloadBtn.onclick = () => window.open(session.summaryPdf, '_blank');
+    }
+
+    // Load videos
+    this.loadVideos(session.recommendedVideos);
+    
+    // Load task
+    this.loadTask(session.task);
+    
+    // Load resources
+    this.loadResources(session.resources);
+
+    // Update page title
+    document.title = `${session.title} - NOVABusiness Bootcamp`;
+  }
+
+  updateElement(id, content) {
+    const element = document.getElementById(id);
+    if (element) element.textContent = content;
+  }
+
+  updatePDF(id, src) {
+    const iframe = document.getElementById(id);
+    if (iframe) iframe.src = src;
+  }
+
+  loadVideos(videos) {
+    const container = document.getElementById('videos-container');
+    if (!container || !videos) return;
+
+    container.innerHTML = videos.map(video => `
+      <div class="video-item">
+        <div class="video-thumbnail" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">
+          <img src="https://img.youtube.com/vi/${this.extractVideoId(video.url)}/maxresdefault.jpg" alt="${video.title}">
+          <div class="play-overlay">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-embed" style="display: none;">
+          <iframe src="${this.convertToEmbedUrl(video.url)}?rel=0" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h4>${video.title}</h4>
+          <p>${video.description}</p>
+          <span class="duration">${video.duration}</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  loadTask(task) {
+    const taskContent = document.getElementById('task-content');
+    if (taskContent && task) {
+      taskContent.innerHTML = `<p>${task}</p>`;
+    }
+  }
+
+  loadResources(resources) {
+    const resourcesList = document.querySelector('.resources-list');
+    if (!resourcesList || !resources) return;
+
+    resourcesList.innerHTML = resources.map(resource => `
+      <a href="${resource.url}" class="resource-item" target="_blank" rel="noopener">
+        <i class="${resource.icon}"></i>
+        <span>${resource.name}</span>
+      </a>
+    `).join('');
+  }
+
+  // Utility Functions
+  extractVideoId(url) {
+    if (url.includes('youtu.be/')) {
+      return url.split('youtu.be/')[1].split('?')[0];
+    } else if (url.includes('watch?v=')) {
+      return url.split('watch?v=')[1].split('&')[0];
+    } else if (url.includes('embed/')) {
+      return url.split('embed/')[1].split('?')[0];
+    }
+    return '';
+  }
+
+  convertToEmbedUrl(youtubeUrl) {
+    const videoId = this.extractVideoId(youtubeUrl);
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : youtubeUrl;
+  }
+
+  isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  staggerAnimation(selector, delay) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element, index) => {
+      element.style.animationDelay = `${index * (delay / 1000)}s`;
+    });
+  }
+
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  handleResize() {
+    // Handle responsive changes
+    this.adjustLayoutForScreenSize();
+  }
+
+  adjustLayoutForScreenSize() {
+    const isMobile = window.innerWidth <= 768;
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (!isMobile && navMenu && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      document.getElementById('hamburger').classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  }
+}
+
+// CSS for Video Modal (inject into head)
+const modalStyles = `
+<style>
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-modal.active {
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.video-modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(102, 126, 234, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover .play-overlay {
+  background: rgba(102, 126, 234, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+.skill-tag {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .session-meta {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
-.meta-item {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.level-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.session-content {
-    padding: 5rem 0;
+.level-badge.beginner {
+  background: #10b981;
+  color: white;
 }
 
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+.level-badge.intermediate {
+  background: #f59e0b;
+  color: white;
 }
 
-.pdf-section, 
-.videos-section, 
-.task-section, 
-.resources-section {
-    background: var(--card-bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 2rem;
-    transition: all var(--transition-medium);
+.level-badge.advanced {
+  background: #ef4444;
+  color: white;
 }
 
-body.dark-mode .pdf-section,
-body.dark-mode .videos-section,
-body.dark-mode .task-section,
-body.dark-mode .resources-section {
-    background: var(--card-bg-dark);
-    border-color: var(--border-dark);
+.duration {
+  background: var(--bg-secondary-light);
+  color: var(--text-secondary-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-.pdf-section:hover,
-.videos-section:hover,
-.task-section:hover,
-.resources-section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+body.dark-mode .duration {
+  background: var(--bg-secondary-dark);
+  color: var(--text-secondary-dark);
 }
 
-.pdf-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+body.modal-open {
+  overflow: hidden;
 }
 
-.pdf-header h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 0;
-    color: var(--text-primary-light);
+.keyboard-focused {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
-body.dark-mode .pdf-header h3 {
-    color: var(--text-primary-dark);
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+  transition: top 0.3s ease;
 }
 
-.pdf-header h3 i {
-    color: var(--primary-color);
-    font-size: 1.5rem;
+.skip-link:focus {
+  top: 6px;
 }
 
-.download-btn {
-    background: var(--gradient-primary);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all var(--transition-medium);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--gradient-primary);
+  z-index: 9999;
+  transition: width 0.1s ease;
 }
 
-.download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-colored);
-}
-
-.pdf-viewer iframe {
-    width: 100%;
-    height: 500px;
-    border: 1px solid var(--border-light);
-    border-radius: 15px;
-    box-shadow: var(--shadow-sm);
-}
-
-body.dark-mode .pdf-viewer iframe {
-    border-color: var(--border-dark);
-}
-
-.videos-section h3,
-.task-section h3,
-.resources-section h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-primary-light);
-}
-
-body.dark-mode .videos-section h3,
-body.dark-mode .task-section h3,
-body.dark-mode .resources-section h3 {
-    color: var(--text-primary-dark);
-}
-
-.videos-section h3 i {
-    color: #ef4444;
-}
-
-.task-section h3 i {
-    color: #8b5cf6;
-}
-
-.resources-section h3 i {
-    color: #10b981;
-}
-
-.video-item {
-    background: var(--bg-secondary-light);
-    border: 1px solid var(--border-light);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-medium);
-    margin-bottom: 1.5rem;
-}
-
-body.dark-mode .video-item {
-    background: var(--bg-secondary-dark);
-    border-color: var(--border-dark);
-}
-
-.video-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.video-item iframe {
-    width: 100%;
-    height: 250px;
-    border: none;
-}
-
-.video-info {
-    padding: 1.5rem;
-}
-
-.video-info h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-primary-light);
-}
-
-body.dark-mode .video-info h4 {
-    color: var(--text-primary-dark);
-}
-
-.video-info p {
-    color: var(--text-secondary-light);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-    text-align: left;
-}
-
-body.dark-mode .video-info p {
-    color: var(--text-secondary-dark);
-}
-
-.task-content {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
-    border-left: 4px solid #8b5cf6;
-    padding: 2rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-body.dark-mode .task-content {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.1));
-}
-
-.task-content::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.task-content p {
-    color: var(--text-primary-light);
-    line-height: 1.7;
-    margin: 0;
-    text-align: left;
-}
-
-body.dark-mode .task-content p {
-    color: var(--text-primary-dark);
-}
-
-.task-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.resources-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.resource-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 1rem 1.5rem;
-    background: var(--bg-secondary-light);
-    border: 1px solid var(--border-light);
-    border-radius: 15px;
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 600;
-    transition: all var(--transition-medium);
-}
-
-body.dark-mode .resource-item {
-    background: var(--bg-secondary-dark);
-    border-color: var(--border-dark);
-}
-
-.resource-item:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateX(10px);
-    box-shadow: var(--shadow-lg);
-}
-
-.resource-item i {
-    font-size: 1.3rem;
-    width: 20px;
-    text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .hero-visual {
-        display: none;
-    }
-    
-    .hero-content {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 992px) {
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--glass-bg-light);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left var(--transition-medium);
-    }
-    
-    body.dark-mode .nav-menu {
-        background: var(--glass-bg-dark);
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .hamburger {
-        display: flex;
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-main {
-        text-align: center;
-    }
+.offline-message {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #ef4444;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 10000;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 8rem 0 5rem 0;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .instructors-grid,
-    .sessions-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .btn-primary,
-    .btn-secondary,
-    .btn-play {
-        justify-content: center;
-    }
-    
-    .session-meta {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-features {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .task-actions {
-        flex-direction: column;
-    }
-    
-    .social-icons {
-        justify-content: center;
-    }
+  .modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .video-thumbnail img {
+    height: 150px;
+  }
+  
+  .play-overlay {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .scrolling-banner {
-        padding: 8px 0;
-    }
-    
-    .scrolling-text {
-        font-size: 0.9rem;
-    }
-    
-    .nav-container {
-        padding: 0 15px;
-    }
-    
-    .theme-toggle {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 1rem;
-    }
-    
-    .stat-item {
-        padding: 1.5rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .stat-icon {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .stat-icon i {
-        font-size: 1.2rem;
-    }
-    
-    .instructor-card,
-    .session-card {
-        padding: 1.5rem;
-    }
-    
-    .instructor-card img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .pdf-section,
-    .videos-section,
-    .task-section,
-    .resources-section {
-        padding: 1.5rem;
-    }
-    
-    .pdf-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    
-    .pdf-viewer iframe {
-        height: 300px;
-    }
-    
-    .back-to-top {
-        width: 45px;
-        height: 45px;
-        bottom: 20px;
-        right: 20px;
-    }
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>`;
+
+// Inject styles into head
+if (!document.querySelector('#nova-modal-styles')) {
+  const styleElement = document.createElement('div');
+  styleElement.id = 'nova-modal-styles';
+  styleElement.innerHTML = modalStyles;
+  document.head.appendChild(styleElement);
 }
 
-/* Print Styles */
-@media print {
-    .navbar,
-    .theme-toggle,
-    .floating-shapes,
-    .back-to-top,
-    .loading-screen {
-        display: none !important;
+// Advanced Features Class
+class NovaAdvancedFeatures {
+  constructor(app) {
+    this.app = app;
+    this.init();
+  }
+
+  init() {
+    this.setupKeyboardShortcuts();
+    this.setupAccessibility();
+    this.setupPerformanceOptimizations();
+    this.setupAnalytics();
+    this.setupProgressTracking();
+  }
+
+  // Keyboard Shortcuts
+  setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+      // Ctrl/Cmd + K for search (future feature)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        this.openSearch();
+      }
+
+      // T for theme toggle
+      if (e.key === 't' || e.key === 'T') {
+        if (!this.isInputFocused()) {
+          this.app.toggleTheme();
+        }
+      }
+
+      // Home key to go to top
+      if (e.key === 'Home') {
+        e.preventDefault();
+        this.app.smoothScrollTo(document.body);
+      }
+
+      // End key to go to bottom
+      if (e.key === 'End') {
+        e.preventDefault();
+        const footer = document.querySelector('footer');
+        if (footer) this.app.smoothScrollTo(footer);
+      }
+    });
+  }
+
+  isInputFocused() {
+    const activeElement = document.activeElement;
+    return activeElement && (
+      activeElement.tagName === 'INPUT' ||
+      activeElement.tagName === 'TEXTAREA' ||
+      activeElement.contentEditable === 'true'
+    );
+  }
+
+  openSearch() {
+    // Future implementation for search functionality
+    console.log('Search feature coming soon!');
+  }
+
+  // Accessibility Enhancements
+  setupAccessibility() {
+    // Add focus indicators for keyboard navigation
+    this.addFocusIndicators();
+    
+    // Setup ARIA labels
+    this.setupAriaLabels();
+    
+    // Add skip links
+    this.addSkipLinks();
+    
+    // Setup reduced motion preferences
+    this.setupReducedMotion();
+  }
+
+  addFocusIndicators() {
+    const focusableElements = document.querySelectorAll(`
+      a, button, input, textarea, select, 
+      [tabindex]:not([tabindex="-1"]), 
+      .instructor-card, .session-card, .youtube-channel-card
+    `);
+
+    focusableElements.forEach(element => {
+      element.addEventListener('focus', () => {
+        element.classList.add('keyboard-focused');
+      });
+
+      element.addEventListener('blur', () => {
+        element.classList.remove('keyboard-focused');
+      });
+    });
+  }
+
+  setupAriaLabels() {
+    // Add ARIA labels to interactive elements without text
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle && !themeToggle.getAttribute('aria-label')) {
+      themeToggle.setAttribute('aria-label', 'Toggle dark/light theme');
+    }
+
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger && !hamburger.getAttribute('aria-label')) {
+      hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+    }
+  }
+
+  addSkipLinks() {
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.className = 'skip-link';
+    skipLink.textContent = 'Skip to main content';
+
+    skipLink.addEventListener('focus', () => {
+      skipLink.style.top = '6px';
+    });
+
+    skipLink.addEventListener('blur', () => {
+      skipLink.style.top = '-40px';
+    });
+
+    document.body.insertBefore(skipLink, document.body.firstChild);
+  }
+
+  setupReducedMotion() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.setProperty('--transition-fast', '0s');
+      document.documentElement.style.setProperty('--transition-medium', '0s');
+      document.documentElement.style.setProperty('--transition-slow', '0s');
+    }
+  }
+
+  // Performance Optimizations
+  setupPerformanceOptimizations() {
+    this.lazyLoadImages();
+    this.preloadCriticalResources();
+    this.optimizeScrollPerformance();
+  }
+
+  lazyLoadImages() {
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      lazyImages.forEach(img => imageObserver.observe(img));
+    }
+  }
+
+  preloadCriticalResources() {
+    // Preload critical fonts
+    const fontPreload = document.createElement('link');
+    fontPreload.rel = 'preload';
+    fontPreload.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+    fontPreload.as = 'style';
+    document.head.appendChild(fontPreload);
+  }
+
+  optimizeScrollPerformance() {
+    let ticking = false;
+
+    const optimizedScrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Scroll-dependent operations here
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+  }
+
+  // Analytics (Privacy-friendly)
+  setupAnalytics() {
+    this.trackPageView();
+    this.trackUserInteractions();
+    this.trackPerformanceMetrics();
+  }
+
+  trackPageView() {
+    // Simple page view tracking without external services
+    const pageData = {
+      url: window.location.href,
+      title: document.title,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer
+    };
+
+    // Store locally for privacy (using in-memory storage for artifacts)
+    this.storeAnalyticsData('pageview', pageData);
+  }
+
+  trackUserInteractions() {
+    // Track button clicks
+    document.addEventListener('click', (e) => {
+      const button = e.target.closest('button, .btn-primary, .btn-secondary');
+      if (button) {
+        this.storeAnalyticsData('click', {
+          element: button.className,
+          text: button.textContent.trim(),
+          timestamp: new Date().toISOString()
+        });
+      }
+    });
+
+    // Track form submissions
+    document.addEventListener('submit', (e) => {
+      this.storeAnalyticsData('form_submit', {
+        form: e.target.className,
+        timestamp: new Date().toISOString()
+      });
+    });
+  }
+
+  trackPerformanceMetrics() {
+    // Track loading performance
+    window.addEventListener('load', () => {
+      if (performance && performance.getEntriesByType) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        if (perfData) {
+          this.storeAnalyticsData('performance', {
+            loadTime: perfData.loadEventEnd - perfData.loadEventStart,
+            domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
+            timestamp: new Date().toISOString()
+          });
+        }
+      }
+    });
+  }
+
+  storeAnalyticsData(event, data) {
+    // Store analytics data in memory (privacy-friendly for artifacts)
+    if (!window.novaAnalyticsData) {
+      window.novaAnalyticsData = [];
+    }
+    window.novaAnalyticsData.push({ event, data });
+    
+    // Keep only last 100 entries
+    if (window.novaAnalyticsData.length > 100) {
+      window.novaAnalyticsData.splice(0, window.novaAnalyticsData.length - 100);
+    }
+  }
+
+  // Progress Tracking
+  setupProgressTracking() {
+    this.trackScrollProgress();
+    this.trackReadingTime();
+    this.trackSessionProgress();
+  }
+
+  trackScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+  }
+
+  trackReadingTime() {
+    const startTime = Date.now();
+    let activeTime = 0;
+    let isActive = true;
+
+    // Track when user is active/inactive
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        isActive = false;
+      } else {
+        isActive = true;
+      }
+    });
+
+    // Update reading time every second
+    const readingInterval = setInterval(() => {
+      if (isActive) {
+        activeTime += 1000;
+      }
+    }, 1000);
+
+    // Store reading time when user leaves
+    window.addEventListener('beforeunload', () => {
+      clearInterval(readingInterval);
+      this.storeAnalyticsData('reading_time', {
+        totalTime: Date.now() - startTime,
+        activeTime: activeTime,
+        page: window.location.pathname
+      });
+    });
+  }
+
+  trackSessionProgress() {
+    // Track which sessions user has viewed
+    if (this.app.isSessionPage()) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = urlParams.get('id');
+      
+      if (sessionId) {
+        // Use in-memory storage for artifacts
+        if (!window.novaViewedSessions) {
+          window.novaViewedSessions = [];
+        }
+        
+        if (!window.novaViewedSessions.includes(sessionId)) {
+          window.novaViewedSessions.push(sessionId);
+        }
+
+        // Track progress through session content
+        this.trackSessionContentProgress(sessionId);
+      }
+    }
+  }
+
+  trackSessionContentProgress(sessionId) {
+    const progressKey = `nova-session-${sessionId}-progress`;
+    const sections = ['pdf', 'videos', 'task', 'resources'];
+    
+    if (!window.novaSessionProgress) {
+      window.novaSessionProgress = {};
     }
     
-    .hero-section {
-        padding: 2rem 0;
-    }
-    
-    .section-header {
-        margin-bottom: 2rem;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.4;
-    }
+    const progress = window.novaSessionProgress[progressKey] || {};
+
+    sections.forEach(section => {
+      const element = document.querySelector(`#${section}-section, .${section}-section`);
+      if (element) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              progress[section] = true;
+              window.novaSessionProgress[progressKey] = progress;
+            }
+          });
+        }, { threshold: 0.5 });
+
+        observer.observe(element);
+      }
+    });
+  }
 }
+
+// Error Handling and Fallbacks
+class NovaErrorHandler {
+  constructor() {
+    this.setupErrorHandling();
+  }
+
+  setupErrorHandling() {
+    // Global error handler
+    window.addEventListener('error', (e) => {
+      this.logError('JavaScript Error', e.error);
+    });
+
+    // Unhandled promise rejection handler
+    window.addEventListener('unhandledrejection', (e) => {
+      this.logError('Unhandled Promise Rejection', e.reason);
+    });
+
+    // Network error handler
+    window.addEventListener('offline', () => {
+      this.showOfflineMessage();
+    });
+
+    window.addEventListener('online', () => {
+      this.hideOfflineMessage();
+    });
+  }
+
+  logError(type, error) {
+    const errorData = {
+      type: type,
+      message: error?.message || error,
+      stack: error?.stack,
+      url: window.location.href,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent
+    };
+
+    // Store error in memory for artifacts
+    if (!window.novaErrors) {
+      window.novaErrors = [];
+    }
+    window.novaErrors.push(errorData);
+    
+    // Keep only last 10 errors
+    if (window.novaErrors.length > 10) {
+      window.novaErrors.splice(0, window.novaErrors.length - 10);
+    }
+    
+    console.error('Nova Error:', errorData);
+  }
+
+  showOfflineMessage() {
+    const offlineMsg = document.createElement('div');
+    offlineMsg.id = 'offline-message';
+    offlineMsg.className = 'offline-message';
+    offlineMsg.innerHTML = `
+      <i class="fas fa-wifi"></i>
+      <span>You're currently offline. Some features may not work.</span>
+    `;
+
+    document.body.appendChild(offlineMsg);
+    setTimeout(() => {
+      offlineMsg.style.transform = 'translateY(0)';
+    }, 100);
+  }
+
+  hideOfflineMessage() {
+    const offlineMsg = document.getElementById('offline-message');
+    if (offlineMsg) {
+      offlineMsg.style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        if (document.body.contains(offlineMsg)) {
+          document.body.removeChild(offlineMsg);
+        }
+      }, 300);
+    }
+  }
+}
+
+// Initialize Application
+document.addEventListener('DOMContentLoaded', () => {
+  // Check for modern browser features
+  if (!window.IntersectionObserver || !window.requestAnimationFrame) {
+    console.warn('Some features may not work in older browsers');
+  }
+
+  // Initialize main application
+  const app = new NovaBootcamp();
+  
+  // Initialize advanced features
+  const advancedFeatures = new NovaAdvancedFeatures(app);
+  
+  // Initialize error handling
+  const errorHandler = new NovaErrorHandler();
+  
+  // Add global reference for debugging
+  window.NovaApp = {
+    app,
+    advancedFeatures,
+    errorHandler
+  };
+
+  console.log('🚀 NOVA Business Bootcamp loaded successfully!');
+});
