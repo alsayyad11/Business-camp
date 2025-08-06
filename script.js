@@ -1,3 +1,4 @@
+// Enhanced JavaScript with Modern Features and Animations
 class NovaBootcamp {
   constructor() {
     this.isLoading = true;
@@ -60,8 +61,7 @@ class NovaBootcamp {
   // Theme Management
   initializeTheme() {
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
+    
     // Check saved theme or system preference
     const savedTheme = this.getSavedTheme();
     this.applyTheme(savedTheme);
@@ -74,8 +74,8 @@ class NovaBootcamp {
   }
 
   getSavedTheme() {
-    const saved = localStorage.getItem('nova-theme');
-    if (saved) return saved;
+    // Use in-memory storage instead of localStorage for artifacts
+    if (window.novaSavedTheme) return window.novaSavedTheme;
     
     // Check system preference
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -86,11 +86,7 @@ class NovaBootcamp {
 
   applyTheme(theme) {
     document.body.className = theme;
-    localStorage.setItem('nova-theme', theme);
-    
-    // Update theme toggle icon
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
+    window.novaSavedTheme = theme; // Use in-memory storage
     
     if (theme === 'dark-mode') {
       document.body.classList.add('dark-mode');
@@ -211,7 +207,7 @@ class NovaBootcamp {
     // Observe all animatable elements
     const animatableElements = document.querySelectorAll(`
       .instructor-card, .session-card, .stat-item, .section-header,
-      .hero-badge, .cta-content, .footer-content
+      .hero-badge, .cta-content, .footer-content, .youtube-channel-card
     `);
 
     animatableElements.forEach(el => {
@@ -271,7 +267,6 @@ class NovaBootcamp {
 
     let current = 0;
     const increment = target / 60; // 60 frames for 1 second
-    const isDecimal = target % 1 !== 0;
     
     const updateCounter = () => {
       current += increment;
@@ -568,6 +563,54 @@ class NovaBootcamp {
     ];
   }
 
+  // YouTube Channels Data
+  getYouTubeChannelsData() {
+    return [
+      {
+        id: 1,
+        name: "Business Channel 1",
+        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        avatar: "./assets/images/abdallah.jpg",
+        url: "https://www.youtube.com/@placeholder1"
+      },
+      {
+        id: 2,
+        name: "Marketing Mastery",
+        description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
+        avatar: "./assets/images/hoda.jpg",
+        url: "https://www.youtube.com/@placeholder2"
+      },
+      {
+        id: 3,
+        name: "Finance & Investment",
+        description: "Master financial planning, investment strategies, and money management for business success.",
+        avatar: "./assets/images/basant.jpg",
+        url: "https://www.youtube.com/@placeholder3"
+      },
+      {
+        id: 4,
+        name: "Tech Startup Hub",
+        description: "Discover the latest trends in technology startups and innovation in the digital world.",
+        avatar: "./assets/images/manar.jpeg",
+        url: "https://www.youtube.com/@placeholder4"
+      },
+      {
+        id: 5,
+        name: "Leadership Skills",
+        description: "Develop your leadership abilities and learn how to manage teams effectively.",
+        avatar: "./assets/images/hunter1.jpg",
+        url: "https://www.youtube.com/@placeholder5"
+      },
+      {
+        id: 6,
+        name: "Sales Excellence",
+        description: "Master the art of selling and learn proven techniques to boost your sales performance.",
+        avatar: "./assets/images/girl.png",
+        url: "https://www.youtube.com/@placeholder6"
+      }
+    ];
+  }
+
   // Load Instructors
   loadInstructors() {
     const instructorsGrid = document.getElementById('instructors-grid');
@@ -624,6 +667,32 @@ class NovaBootcamp {
 
     // Add stagger animation
     this.staggerAnimation('.session-card', 200);
+  }
+
+  // Load YouTube Channels
+  loadYouTubeChannels() {
+    const youtubeChannelsGrid = document.getElementById('youtube-channels-grid');
+    if (!youtubeChannelsGrid) return;
+
+    const channels = this.getYouTubeChannelsData();
+    
+    youtubeChannelsGrid.innerHTML = channels.map((channel, index) => `
+      <a href="${channel.url}" target="_blank" rel="noopener" class="youtube-channel-card" style="animation-delay: ${index * 0.1}s">
+        <div class="youtube-channel-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="youtube-channel-avatar">
+          <img src="${channel.avatar}" alt="${channel.name}" loading="lazy">
+        </div>
+        <div class="youtube-channel-info">
+          <h3 class="youtube-channel-name">${channel.name}</h3>
+          <p class="youtube-channel-description">${channel.description}</p>
+        </div>
+      </a>
+    `).join('');
+
+    // Add stagger animation
+    this.staggerAnimation('.youtube-channel-card', 200);
   }
 
   // Session Page
@@ -984,6 +1053,53 @@ body.modal-open {
   overflow: hidden;
 }
 
+.keyboard-focused {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--gradient-primary);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+.offline-message {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #ef4444;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 10000;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
 @media (max-width: 768px) {
   .modal-content {
     width: 95%;
@@ -998,6 +1114,14 @@ body.modal-open {
     width: 50px;
     height: 50px;
     font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 </style>`;
@@ -1050,7 +1174,8 @@ class NovaAdvancedFeatures {
       // End key to go to bottom
       if (e.key === 'End') {
         e.preventDefault();
-        this.app.smoothScrollTo(document.querySelector('footer'));
+        const footer = document.querySelector('footer');
+        if (footer) this.app.smoothScrollTo(footer);
       }
     });
   }
@@ -1088,7 +1213,7 @@ class NovaAdvancedFeatures {
     const focusableElements = document.querySelectorAll(`
       a, button, input, textarea, select, 
       [tabindex]:not([tabindex="-1"]), 
-      .instructor-card, .session-card
+      .instructor-card, .session-card, .youtube-channel-card
     `);
 
     focusableElements.forEach(element => {
@@ -1120,18 +1245,6 @@ class NovaAdvancedFeatures {
     skipLink.href = '#main-content';
     skipLink.className = 'skip-link';
     skipLink.textContent = 'Skip to main content';
-    skipLink.style.cssText = `
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: var(--primary-color);
-      color: white;
-      padding: 8px;
-      text-decoration: none;
-      border-radius: 4px;
-      z-index: 10000;
-      transition: top 0.3s ease;
-    `;
 
     skipLink.addEventListener('focus', () => {
       skipLink.style.top = '6px';
@@ -1219,7 +1332,7 @@ class NovaAdvancedFeatures {
       referrer: document.referrer
     };
 
-    // Store locally for privacy (could be sent to your own analytics server)
+    // Store locally for privacy (using in-memory storage for artifacts)
     this.storeAnalyticsData('pageview', pageData);
   }
 
@@ -1248,26 +1361,30 @@ class NovaAdvancedFeatures {
   trackPerformanceMetrics() {
     // Track loading performance
     window.addEventListener('load', () => {
-      const perfData = performance.getEntriesByType('navigation')[0];
-      this.storeAnalyticsData('performance', {
-        loadTime: perfData.loadEventEnd - perfData.loadEventStart,
-        domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
-        timestamp: new Date().toISOString()
-      });
+      if (performance && performance.getEntriesByType) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        if (perfData) {
+          this.storeAnalyticsData('performance', {
+            loadTime: perfData.loadEventEnd - perfData.loadEventStart,
+            domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
+            timestamp: new Date().toISOString()
+          });
+        }
+      }
     });
   }
 
   storeAnalyticsData(event, data) {
-    // Store analytics data locally (privacy-friendly)
-    const analyticsData = JSON.parse(localStorage.getItem('nova-analytics') || '[]');
-    analyticsData.push({ event, data });
+    // Store analytics data in memory (privacy-friendly for artifacts)
+    if (!window.novaAnalyticsData) {
+      window.novaAnalyticsData = [];
+    }
+    window.novaAnalyticsData.push({ event, data });
     
     // Keep only last 100 entries
-    if (analyticsData.length > 100) {
-      analyticsData.splice(0, analyticsData.length - 100);
+    if (window.novaAnalyticsData.length > 100) {
+      window.novaAnalyticsData.splice(0, window.novaAnalyticsData.length - 100);
     }
-    
-    localStorage.setItem('nova-analytics', JSON.stringify(analyticsData));
   }
 
   // Progress Tracking
@@ -1280,16 +1397,6 @@ class NovaAdvancedFeatures {
   trackScrollProgress() {
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
-    progressBar.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: var(--gradient-primary);
-      z-index: 9999;
-      transition: width 0.1s ease;
-    `;
     document.body.appendChild(progressBar);
 
     window.addEventListener('scroll', () => {
@@ -1315,7 +1422,7 @@ class NovaAdvancedFeatures {
     });
 
     // Update reading time every second
-    setInterval(() => {
+    const readingInterval = setInterval(() => {
       if (isActive) {
         activeTime += 1000;
       }
@@ -1323,6 +1430,7 @@ class NovaAdvancedFeatures {
 
     // Store reading time when user leaves
     window.addEventListener('beforeunload', () => {
+      clearInterval(readingInterval);
       this.storeAnalyticsData('reading_time', {
         totalTime: Date.now() - startTime,
         activeTime: activeTime,
@@ -1338,10 +1446,13 @@ class NovaAdvancedFeatures {
       const sessionId = urlParams.get('id');
       
       if (sessionId) {
-        const viewedSessions = JSON.parse(localStorage.getItem('nova-viewed-sessions') || '[]');
-        if (!viewedSessions.includes(sessionId)) {
-          viewedSessions.push(sessionId);
-          localStorage.setItem('nova-viewed-sessions', JSON.stringify(viewedSessions));
+        // Use in-memory storage for artifacts
+        if (!window.novaViewedSessions) {
+          window.novaViewedSessions = [];
+        }
+        
+        if (!window.novaViewedSessions.includes(sessionId)) {
+          window.novaViewedSessions.push(sessionId);
         }
 
         // Track progress through session content
@@ -1353,7 +1464,12 @@ class NovaAdvancedFeatures {
   trackSessionContentProgress(sessionId) {
     const progressKey = `nova-session-${sessionId}-progress`;
     const sections = ['pdf', 'videos', 'task', 'resources'];
-    const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+    
+    if (!window.novaSessionProgress) {
+      window.novaSessionProgress = {};
+    }
+    
+    const progress = window.novaSessionProgress[progressKey] || {};
 
     sections.forEach(section => {
       const element = document.querySelector(`#${section}-section, .${section}-section`);
@@ -1362,7 +1478,7 @@ class NovaAdvancedFeatures {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               progress[section] = true;
-              localStorage.setItem(progressKey, JSON.stringify(progress));
+              window.novaSessionProgress[progressKey] = progress;
             }
           });
         }, { threshold: 0.5 });
@@ -1403,23 +1519,23 @@ class NovaErrorHandler {
   logError(type, error) {
     const errorData = {
       type: type,
-      message: error.message || error,
-      stack: error.stack,
+      message: error?.message || error,
+      stack: error?.stack,
       url: window.location.href,
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent
     };
 
-    // Store error locally
-    const errors = JSON.parse(localStorage.getItem('nova-errors') || '[]');
-    errors.push(errorData);
+    // Store error in memory for artifacts
+    if (!window.novaErrors) {
+      window.novaErrors = [];
+    }
+    window.novaErrors.push(errorData);
     
     // Keep only last 10 errors
-    if (errors.length > 10) {
-      errors.splice(0, errors.length - 10);
+    if (window.novaErrors.length > 10) {
+      window.novaErrors.splice(0, window.novaErrors.length - 10);
     }
-    
-    localStorage.setItem('nova-errors', JSON.stringify(errors));
     
     console.error('Nova Error:', errorData);
   }
@@ -1431,19 +1547,6 @@ class NovaErrorHandler {
     offlineMsg.innerHTML = `
       <i class="fas fa-wifi"></i>
       <span>You're currently offline. Some features may not work.</span>
-    `;
-    offlineMsg.style.cssText = `
-      position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: #ef4444;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      z-index: 10000;
-      transform: translateY(-100%);
-      transition: transform 0.3s ease;
     `;
 
     document.body.appendChild(offlineMsg);
@@ -1457,7 +1560,9 @@ class NovaErrorHandler {
     if (offlineMsg) {
       offlineMsg.style.transform = 'translateY(-100%)';
       setTimeout(() => {
-        document.body.removeChild(offlineMsg);
+        if (document.body.contains(offlineMsg)) {
+          document.body.removeChild(offlineMsg);
+        }
       }, 300);
     }
   }
@@ -1486,98 +1591,5 @@ document.addEventListener('DOMContentLoaded', () => {
     errorHandler
   };
 
-  // Service Worker Registration (for future PWA features)
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      // navigator.serviceWorker.register('/sw.js')
-      //   .then(registration => console.log('SW registered'))
-      //   .catch(error => console.log('SW registration failed'));
-    });
-  }
-
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
-
 });
-
-
-  // YouTube Channels Data
-  getYouTubeChannelsData() {
-    return [
-      {
-        id: 1,
-        name: "Business Channel 1",
-        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
-        avatar: "./assets/images/abdallah.jpg",
-        url: "https://www.youtube.com/@placeholder1"
-      },
-      {
-        id: 2,
-        name: "Marketing Mastery",
-        description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
-        avatar: "./assets/images/hoda.jpg",
-        url: "https://www.youtube.com/@placeholder2"
-      },
-      {
-        id: 3,
-        name: "Finance & Investment",
-        description: "Master financial planning, investment strategies, and money management for business success.",
-        avatar: "./assets/images/basant.jpg",
-        url: "https://www.youtube.com/@placeholder3"
-      },
-      {
-        id: 4,
-        name: "Tech Startup Hub",
-        description: "Discover the latest trends in technology startups and innovation in the digital world.",
-        avatar: "./assets/images/manar.jpeg",
-        url: "https://www.youtube.com/@placeholder4"
-      },
-      {
-        id: 5,
-        name: "Leadership Skills",
-        description: "Develop your leadership abilities and learn how to manage teams effectively.",
-        avatar: "./assets/images/hunter1.jpg",
-        url: "https://www.youtube.com/@placeholder5"
-      },
-      {
-        id: 6,
-        name: "Sales Excellence",
-        description: "Master the art of selling and learn proven techniques to boost your sales performance.",
-        avatar: "./assets/images/girl.png",
-        url: "https://www.youtube.com/@placeholder6"
-      }
-    ];
-  }
-
-  // Load YouTube Channels
-  loadYouTubeChannels() {
-    const youtubeChannelsGrid = document.getElementById('youtube-channels-grid');
-    if (!youtubeChannelsGrid) return;
-
-    const channels = this.getYouTubeChannelsData();
-    
-    youtubeChannelsGrid.innerHTML = channels.map((channel, index) => `
-      <a href="${channel.url}" target="_blank" rel="noopener" class="youtube-channel-card" style="animation-delay: ${index * 0.1}s">
-        <div class="youtube-channel-icon">
-          <i class="fab fa-youtube"></i>
-        </div>
-        <div class="youtube-channel-avatar">
-          <img src="${channel.avatar}" alt="${channel.name}" loading="lazy">
-        </div>
-        <div class="youtube-channel-info">
-          <h3 class="youtube-channel-name">${channel.name}</h3>
-          <p class="youtube-channel-description">${channel.description}</p>
-        </div>
-      </a>
-    `).join('');
-
-    // Add stagger animation
-    this.staggerAnimation('.youtube-channel-card', 200);
-  }
-
-
-
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  window.novaBootcamp = new NovaBootcamp();
-});
-
