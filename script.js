@@ -568,46 +568,19 @@ class NovaBootcamp {
     return [
       {
         id: 1,
-        name: "Business Channel 1",
+        name: "خضر و بزنس",
         description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
-        avatar: "./assets/images/abdallah.jpg",
-        url: "https://www.youtube.com/@placeholder1"
+        avatar: "./assets/images/khedr.jpg",
+        url: "https://www.youtube.com/@khedrwb"
       },
       {
         id: 2,
-        name: "Marketing Mastery",
+        name: "Ehab Mesallum",
         description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
-        avatar: "./assets/images/hoda.jpg",
-        url: "https://www.youtube.com/@placeholder2"
+        avatar: "./assets/images/ehab.jpg",
+        url: "https://www.youtube.com/@ehabmes"
       },
-      {
-        id: 3,
-        name: "Finance & Investment",
-        description: "Master financial planning, investment strategies, and money management for business success.",
-        avatar: "./assets/images/basant.jpg",
-        url: "https://www.youtube.com/@placeholder3"
-      },
-      {
-        id: 4,
-        name: "Tech Startup Hub",
-        description: "Discover the latest trends in technology startups and innovation in the digital world.",
-        avatar: "./assets/images/manar.jpeg",
-        url: "https://www.youtube.com/@placeholder4"
-      },
-      {
-        id: 5,
-        name: "Leadership Skills",
-        description: "Develop your leadership abilities and learn how to manage teams effectively.",
-        avatar: "./assets/images/hunter1.jpg",
-        url: "https://www.youtube.com/@placeholder5"
-      },
-      {
-        id: 6,
-        name: "Sales Excellence",
-        description: "Master the art of selling and learn proven techniques to boost your sales performance.",
-        avatar: "./assets/images/girl.png",
-        url: "https://www.youtube.com/@placeholder6"
-      }
+      
     ];
   }
 
@@ -1593,3 +1566,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
