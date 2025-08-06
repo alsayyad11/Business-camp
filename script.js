@@ -1,4 +1,3 @@
-// Enhanced JavaScript with Modern Features and Animations
 class NovaBootcamp {
   constructor() {
     this.isLoading = true;
@@ -429,6 +428,7 @@ class NovaBootcamp {
     if (this.isHomePage()) {
       this.loadInstructors();
       this.loadSessions();
+      this.loadYouTubeChannels();
     } else if (this.isSessionPage()) {
       this.loadSessionPage();
     }
@@ -1498,3 +1498,86 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 
 });
+
+
+  // YouTube Channels Data
+  getYouTubeChannelsData() {
+    return [
+      {
+        id: 1,
+        name: "Business Channel 1",
+        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        avatar: "./assets/images/abdallah.jpg",
+        url: "https://www.youtube.com/@placeholder1"
+      },
+      {
+        id: 2,
+        name: "Marketing Mastery",
+        description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
+        avatar: "./assets/images/hoda.jpg",
+        url: "https://www.youtube.com/@placeholder2"
+      },
+      {
+        id: 3,
+        name: "Finance & Investment",
+        description: "Master financial planning, investment strategies, and money management for business success.",
+        avatar: "./assets/images/basant.jpg",
+        url: "https://www.youtube.com/@placeholder3"
+      },
+      {
+        id: 4,
+        name: "Tech Startup Hub",
+        description: "Discover the latest trends in technology startups and innovation in the digital world.",
+        avatar: "./assets/images/manar.jpeg",
+        url: "https://www.youtube.com/@placeholder4"
+      },
+      {
+        id: 5,
+        name: "Leadership Skills",
+        description: "Develop your leadership abilities and learn how to manage teams effectively.",
+        avatar: "./assets/images/hunter1.jpg",
+        url: "https://www.youtube.com/@placeholder5"
+      },
+      {
+        id: 6,
+        name: "Sales Excellence",
+        description: "Master the art of selling and learn proven techniques to boost your sales performance.",
+        avatar: "./assets/images/girl.png",
+        url: "https://www.youtube.com/@placeholder6"
+      }
+    ];
+  }
+
+  // Load YouTube Channels
+  loadYouTubeChannels() {
+    const youtubeChannelsGrid = document.getElementById('youtube-channels-grid');
+    if (!youtubeChannelsGrid) return;
+
+    const channels = this.getYouTubeChannelsData();
+    
+    youtubeChannelsGrid.innerHTML = channels.map((channel, index) => `
+      <a href="${channel.url}" target="_blank" rel="noopener" class="youtube-channel-card" style="animation-delay: ${index * 0.1}s">
+        <div class="youtube-channel-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="youtube-channel-avatar">
+          <img src="${channel.avatar}" alt="${channel.name}" loading="lazy">
+        </div>
+        <div class="youtube-channel-info">
+          <h3 class="youtube-channel-name">${channel.name}</h3>
+          <p class="youtube-channel-description">${channel.description}</p>
+        </div>
+      </a>
+    `).join('');
+
+    // Add stagger animation
+    this.staggerAnimation('.youtube-channel-card', 200);
+  }
+
+
+
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  window.novaBootcamp = new NovaBootcamp();
+});
+
