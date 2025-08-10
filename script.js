@@ -580,6 +580,20 @@ class NovaBootcamp {
         avatar: "./assets/images/ehab.jpg",
         url: "https://www.youtube.com/@ehabmes"
       },
+   {
+        id: 3,
+        name: "Business Bel Arabi",
+        description: "Business in Arabic seeks to help people develop themselves and their businesses and avoid common mistakes and problems, following the different known models in management and entrepreneurship. Wider than that and we moved from just focusing on business to focusing on the life of every person and started a project with a new slogan You are the CEO of your life and the goal is to develop life in general, both at the level of money and business and at the level of thinking.",
+        avatar: "./assets/images/businessarabic.jpg",
+        url: "https://www.youtube.com/@Businessbelarabi"
+      },
+ {
+        id: 4,
+        name: "المال الحلال - El Mal El Halal",
+        description: "The Halal Money Podcast discusses a different angle of business, one where ethics and principles are the real winner. Join Mohamed Abu El-Naga Nagaty and his guests from various fields to get to know them personally, beyond the numbers, and learn how they succeeded through halal means.",
+        avatar: "./assets/images/elmalelhalal.jpg",
+        url: "https://www.youtube.com/@elmaal.elhalal"
+      },
       
     ];
   }
@@ -1566,6 +1580,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
