@@ -538,13 +538,13 @@ class NovaBootcamp {
       {
         id: 2,
         title: "Digital Marketing Fundamentals",
-        instructor: "Abdallah Altaqawy",
-        date: "August 12, 2025",
+        instructor: "Ahmed M Elsayyad",
+        date: "August 10, 2025",
         duration: "3 hours",
         level: "Intermediate",
-        description: "Master the essentials of digital marketing including SEO, social media marketing, content strategy, and analytics to grow your business online.",
-        coverImage: "./assets/images/intro .png",
-        presentationPdf: "./assets/files/marketing-fundamentals.pdf",
+        description: "Learn a human-centered approach to turn your startup idea into a viable business by defining real-world problems, creating empathy maps, and validating your concept.",
+        coverImage: "./assets/images/defineproblem.png",
+        presentationPdf: "./assets/files/Define the problem.pdf",
         summaryPdf: "./assets/files/marketing-summary.pdf",
         recommendedVideos: [
           {
@@ -1566,4 +1566,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
