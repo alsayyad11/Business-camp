@@ -543,7 +543,7 @@ class NovaBootcamp {
         duration: "3 hours",
         level: "Intermediate",
         description: "Learn a human-centered approach to turn your startup idea into a viable business by defining real-world problems, creating empathy maps, and validating your concept.",
-        coverImage: "./assets/images/define.png",
+        coverImage: "./assets/images/def.png",
         presentationPdf: "./assets/files/Define the problem.pdf",
         summaryPdf: "./assets/files/marketing-summary.pdf",
         recommendedVideos: [
@@ -1566,6 +1566,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
