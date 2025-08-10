@@ -583,7 +583,7 @@ class NovaBootcamp {
    {
         id: 3,
         name: "Business Bel Arabi",
-        description: "Business in Arabic seeks to help people develop themselves and their businesses and avoid common mistakes and problems, following the different known models in management and entrepreneurship. Wider than that and we moved from just focusing on business to focusing on the life of every person and started a project with a new slogan You are the CEO of your life and the goal is to develop life in general, both at the level of money and business and at the level of thinking.",
+        description: "Business in Arabic aims to help people develop themselves and their businesses while avoiding common mistakes, based on well-known management and entrepreneurship models. We expanded our focus from just business to the whole life of every individual, launching a project with the slogan: You are the CEO of your life. Our goal is to develop all aspects of life—financial, business, and mindset.",
         avatar: "./assets/images/businessarabic.jpg",
         url: "https://www.youtube.com/@Businessbelarabi"
       },
@@ -1580,6 +1580,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
