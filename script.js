@@ -537,7 +537,7 @@ class NovaBootcamp {
       },
       {
         id: 2,
-        title: "Digital Marketing Fundamentals",
+        title: "Design thinking - Define the problem",
         instructor: "Ahmed M Elsayyad",
         date: "August 10, 2025",
         duration: "3 hours",
@@ -1566,6 +1566,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
