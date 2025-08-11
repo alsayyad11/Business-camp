@@ -553,13 +553,13 @@ class NovaBootcamp {
             duration: "10:15",
             description: "Discover what Design Thinking is and how it helps solve problems creatively. In just a few steps, we’ll break down the process — from understanding users to generating ideas and testing solutions. Perfect for designers, entrepreneurs, and anyone looking to innovate."
           },
-{
+          {
             title: "What is Design Thinking",
-            url: "https://youtu.be/tRHds9dmPuc?si=iSsVh8Q5NODGfW1W",
+            url: "https://youtu.be/tRHds9dmPuc?si=_fB8nWGfAjXN992U",
             duration: "10:15",
             description: "Learn the basics of Design Thinking — a simple, creative approach to solving problems. We’ll guide you through its key stages and show how it can spark innovation in any field."
           },
-{
+          {
             title: "What is Design Thinking",
             url: "https://www.youtube.com/embed/videoseries?si=edtdaJDWybRoIJga&amp;list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI",
             duration: "10:15",
@@ -1594,6 +1594,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
