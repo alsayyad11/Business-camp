@@ -572,7 +572,7 @@ class NovaBootcamp {
           { name: "Marketing Calendar Template", url: "https://ar.wikipedia.org/wiki/%D8%AA%D9%81%D9%83%D9%8A%D8%B1_%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%8A", icon: "fas fa-calendar" },
           { name: "Analytics Dashboard", url: "https://www.interaction-design.org/literature/topics/design-thinking", icon: "fas fa-chart-line" },
           { name: "Analytics Dashboard", url: "https://spskills.com/articles/design-thinking/", icon: "fas fa-chart-line" },
-          { name: "Analytics Dashboard", url: "https://www.adobe.com/sa_ar/creativecloud/design/discover/design-thinking.html", icon: "fas fa-chart-line" }
+          { name: "Analytics Dashboard", url: "https://youtube.com/playlist?list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI&si=OkUSE5V62jjx-lbJ", icon: "fas fa-chart-line" }
         ]
       }
     ];
@@ -1595,6 +1595,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
