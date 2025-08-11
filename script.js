@@ -544,7 +544,7 @@ class NovaBootcamp {
         description: "Learn a human-centered approach to turn your startup idea into a viable business by defining real-world problems, creating empathy maps, and validating your concept.",
         coverImage: "./assets/images/def.png",
         presentationPdf: "./assets/files/Define the problem.pdf",
-        summaryPdf: "./assets/files/marketing-summary.pdf",
+        summaryPdf: "./assets/files/Design thinking - Define The Problem.pdf",
         recommendedVideos: [
           {
             title: "What is Design Thinking",
@@ -1587,6 +1587,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
