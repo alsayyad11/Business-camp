@@ -556,7 +556,6 @@ class NovaBootcamp {
           {
             title: "What is Design Thinking",
             url: "https://www.youtube.com/embed/tRHds9dmPuc?si=_fB8nWGfAjXN992U",
-            thumbnail: "https://img.youtube.com/vi/tRHds9dmPuc/./assets/images/def.png",
             duration: "10:15",
             description: "Learn the basics of Design Thinking — a simple, creative approach to solving problems. We’ll guide you through its key stages and show how it can spark innovation in any field."
           },
@@ -569,10 +568,10 @@ class NovaBootcamp {
         ],
         task: "S00N.",
         resources: [
-          { name: "Marketing Calendar Template", url: "https://ar.wikipedia.org/wiki/%D8%AA%D9%81%D9%83%D9%8A%D8%B1_%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%8A", icon: "fas fa-calendar" },
-          { name: "Analytics Dashboard", url: "https://www.interaction-design.org/literature/topics/design-thinking", icon: "fas fa-chart-line" },
-          { name: "Analytics Dashboard", url: "https://spskills.com/articles/design-thinking/", icon: "fas fa-chart-line" },
-          { name: "Analytics Dashboard", url: "https://youtube.com/playlist?list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI&si=OkUSE5V62jjx-lbJ", icon: "fas fa-chart-line" }
+          { name: "Desgin Thinking - wikipedia.org", url: "https://ar.wikipedia.org/wiki/%D8%AA%D9%81%D9%83%D9%8A%D8%B1_%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%8A", icon: "fas fa-calendar" },
+          { name: "Design Thinking - InterceptionDesign.org", url: "https://www.interaction-design.org/literature/topics/design-thinking", icon: "fas fa-chart-line" },
+          { name: "Design Thinks - Spskills.com", url: "https://spskills.com/articles/design-thinking/", icon: "fas fa-chart-line" },
+          { name: "Design Thinking Playlist", url: "https://youtube.com/playlist?list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI&si=OkUSE5V62jjx-lbJ", icon: "fas fa-chart-line" }
         ]
       }
     ];
@@ -1595,6 +1594,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
