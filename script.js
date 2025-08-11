@@ -1,4 +1,3 @@
-// Enhanced JavaScript with Modern Features and Animations
 class NovaBootcamp {
   constructor() {
     this.isLoading = true;
@@ -559,12 +558,6 @@ class NovaBootcamp {
             duration: "10:15",
             description: "Learn the basics of Design Thinking — a simple, creative approach to solving problems. We’ll guide you through its key stages and show how it can spark innovation in any field."
           },
-          {
-            title: "What is Design Thinking",
-            url: "https://www.youtube.com/embed/videoseries?si=edtdaJDWybRoIJga&amp;list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI",
-            duration: "10:15",
-            description: "A step-by-step journey into Design Thinking. From the core principles to real-world examples, this playlist will help you master the process and apply it to spark innovation in any project."
-          }
         ],
         task: "S00N.",
         resources: [
@@ -1594,6 +1587,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
