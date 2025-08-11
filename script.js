@@ -556,7 +556,7 @@ class NovaBootcamp {
           {
             title: "What is Design Thinking",
             url: "https://www.youtube.com/embed/tRHds9dmPuc?si=_fB8nWGfAjXN992U",
-        coverImage: "./assets/images/intro .png",
+            thumbnail: "https://img.youtube.com/vi/tRHds9dmPuc/maxresdefault.jpg",
             duration: "10:15",
             description: "Learn the basics of Design Thinking — a simple, creative approach to solving problems. We’ll guide you through its key stages and show how it can spark innovation in any field."
           },
@@ -1595,6 +1595,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
