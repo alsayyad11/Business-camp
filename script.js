@@ -577,26 +577,38 @@ class NovaBootcamp {
         description: "Learn how to generate ideas and solve problems creatively using powerful tools and techniques. In this session, we’ll apply SCAMPER to spark fresh concepts, set criteria to evaluate them, and use utopia thinking to imagine ideal solutions. Then, we’ll bring those ideas to life by shaping them into a Minimum Viable Product (MVP) and a prototype ready for testing. Perfect for entrepreneurs, designers, and innovators who want to turn bold ideas into tangible results",
         coverImage: "./assets/images/idea.png",
         presentationPdf: "./assets/files/Get Idea .pdf",
-        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
+        summaryPdf: "./assets/files/getideasummary.pdf",
         recommendedVideos: [
           {
-            title: "What is Entrepreneurship?",
-            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
-            duration: "12:15",
-            description: "Understanding the fundamentals of entrepreneurship and business creation."
+            title: "What is SCAMPER Tool?",
+            url: "https://youtu.be/lzK5GQdwUYo?si=QnNZMKy8NASKTvR9",
+            duration: "1 Hour",
+            description: "A creative technique that helps generate new ideas by prompting you to Substitute, Combine, Adapt, Modify, Put to Another Use, Eliminate, and Reverse elements of an existing product or process to innovate and improve."
           },
           {
-            title: "Intro to entrepreneurship",
-            url: "https://youtu.be/gGzxpIfEUc8?si=AXgqsteGrWHujHwT",
-            duration: "12:45",
-            description: "Developing the right mindset for successful entrepreneurship."
+            title: "The lean startup",
+            url: "https://youtu.be/TAxtPYauq5E?si=m3hONDpCX9h6g_sE",
+            duration: "1 Hour",
+            description:"The Lean Startup teaches entrepreneurs to build businesses by testing ideas early, using a Minimum Viable Product (MVP), and refining the product based on real customer feedback. The key idea is to iterate quickly and learn from mistakes to save time, money, and reduce risk. It focuses on data-driven decisions and continuous improvement."
+          },
+   {
+            title: "What is Value Proposition?",
+            url: "https://youtu.be/yskTFlm_Sl8?si=LfZCic512KNiJI4y",
+            duration: "1 Hour",
+            description: "This video outlines the concept of a value proposition, explaining how it highlights the unique benefits of a product or service, and why it’s the best choice for solving a customer’s problem. It demonstrates how a strong value proposition addresses customer needs and sets a product apart from competitors."
+          },
+          {
+            title: "Value Proposition Canvas",
+            url: "https://youtu.be/T7xnyHKKjDw?si=fsr5nR7dzwaI9T8P",
+            duration: "1 Hour",
+            description:"This video explains the Value Proposition Canvas template, showing how it helps identify customer needs and design a value proposition that stands out by addressing those needs effectively."
           },
         ],
         task: "No Task Required.",
         resources: [
-          { name: "What is entrepreneurship", url: "https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9_%D8%A3%D8%B9%D9%85%D8%A7%D9%84", icon: "fas fa-toolbox" },
-          { name: "10 Differences Between Entrepreneurship and Business Management", url: "https://businessbelarabi.com/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/", icon: "fas fa-chart-bar" },
-          { name: "What are the types of entrepreneurship and what type of entrepreneur are you?", url: "https://www.for9a.com/learn/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D9%88%D8%A3%D9%8A-%D9%86%D9%88%D8%B9-%D9%85%D9%86-%D8%B1%D9%88%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A3%D9%86%D8%AA", icon: "fas fa-search" }
+          { name: "What is Value Proposition", url: "https://ar.wikipedia.org/wiki/%D9%82%D9%8A%D9%85%D8%A9_%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9", icon: "fas fa-toolbox" },
+          { name: "SCAMPER Tool", url: "https://sharjah24.ae/ar/Articles/2024/10/23/NJ817", icon: "fas fa-chart-bar" },
+          { name: "The Lean Startup", url: "https://www.linkedin.com/pulse/%D9%85%D9%84%D8%AE%D8%B5-%D9%83%D8%AA%D8%A7%D8%A8-lean-startup-ahmad-el-saeed-ny7yf/", icon: "fas fa-search" }
         ]
       },
     ];
@@ -1639,6 +1651,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
