@@ -566,7 +566,7 @@ class NovaBootcamp {
           { name: "Design Thinks - Spskills.com", url: "https://spskills.com/articles/design-thinking/", icon: "fas fa-chart-line" },
           { name: "Design Thinking Playlist", url: "https://youtube.com/playlist?list=PL0d7SmgddCPkEyEBXPcjOXT9HRuRYzHCI&si=OkUSE5V62jjx-lbJ", icon: "fas fa-chart-line" }
         ]
-      }
+      },
         {
         id: 3,
         title: "Design thinking - Get Idea",
@@ -1619,6 +1619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
