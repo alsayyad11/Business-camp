@@ -633,7 +633,27 @@ class NovaBootcamp {
         avatar: "./assets/images/elmalelhalal.jpg",
         url: "https://www.youtube.com/@elmaal.elhalal"
       },
-      
+       {
+        id: 5,
+        name: "Khamsa Business",
+        description: "An Arabic podcast that helps entrepreneurs grow online through practical tips, strategies, and case studies on digital marketing, e-commerce, social media, and business scaling.",
+        avatar: "./assets/images/5B.png",
+        url: "https://www.youtube.com/@khamsabusiness"
+      },
+       {
+        id: 6,
+        name: "أكاديمية إعمل بيزنس",
+        description: "The first in the Arab world to offer training programs for individuals and companies in business and management, led by top Arab trainers, with practical application and accredited certificates.",
+        avatar: "./assets/images/dobusiness.png",
+        url: "https://www.youtube.com/@E3melBusinessArabic"
+      },
+       {
+        id: 7,
+        name: "3lm&3ml",
+        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        avatar: "./assets/images/3lm3ml.jpg",
+        url: "https://www.youtube.com/@3lm3ml"
+      },
     ];
   }
 
