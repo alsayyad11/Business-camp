@@ -559,7 +559,7 @@ class NovaBootcamp {
             description: "Learn the basics of Design Thinking — a simple, creative approach to solving problems. We’ll guide you through its key stages and show how it can spark innovation in any field."
           },
         ],
-        task: "S00N.",
+        task: "proplem statement canvas.",
         resources: [
           { name: "Desgin Thinking - wikipedia.org", url: "https://ar.wikipedia.org/wiki/%D8%AA%D9%81%D9%83%D9%8A%D8%B1_%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%8A", icon: "fas fa-calendar" },
           { name: "Design Thinking - InterceptionDesign.org", url: "https://www.interaction-design.org/literature/topics/design-thinking", icon: "fas fa-chart-line" },
@@ -604,7 +604,7 @@ class NovaBootcamp {
             description:"This video explains the Value Proposition Canvas template, showing how it helps identify customer needs and design a value proposition that stands out by addressing those needs effectively."
           },
         ],
-        task: "No Task Required.",
+        task: "Value proposition canvas.",
         resources: [
           { name: "What is Value Proposition", url: "https://ar.wikipedia.org/wiki/%D9%82%D9%8A%D9%85%D8%A9_%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9", icon: "fas fa-toolbox" },
           { name: "SCAMPER Tool", url: "https://sharjah24.ae/ar/Articles/2024/10/23/NJ817", icon: "fas fa-chart-bar" },
@@ -1651,6 +1651,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
