@@ -611,6 +611,37 @@ class NovaBootcamp {
           { name: "The Lean Startup", url: "https://www.linkedin.com/pulse/%D9%85%D9%84%D8%AE%D8%B5-%D9%83%D8%AA%D8%A7%D8%A8-lean-startup-ahmad-el-saeed-ny7yf/", icon: "fas fa-search" }
         ]
       },
+ {
+        id: 4,
+        title: "Market Research",
+        instructor: "Abdallah Altaqawy",
+        date: "August 17, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
+        coverImage: "./assets/images/MR.png",
+        presentationPdf: "./assets/files/MarketResearch.pdf",
+        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
+        recommendedVideos: [
+          {
+            title: "What is Entrepreneurship?",
+            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
+            duration: "12:15",
+            description: "Understanding the fundamentals of entrepreneurship and business creation."
+          },
+          ],
+        task: "No Task Required.",
+     resources = [
+  { name: "Invest in Egypt", url: "https://www.investinegypt.gov.eg", icon: "fas fa-landmark" },
+  { name: "Statista", url: "https://www.statista.com", icon: "fas fa-chart-line" },
+  { name: "Credence Research", url: "https://www.credenceresearch.com", icon: "fas fa-search" },
+  { name: "DataIntelo", url: "https://dataintelo.com", icon: "fas fa-database" },
+  { name: "Market Research Future", url: "https://www.marketresearchfuture.com", icon: "fas fa-briefcase" },
+  { name: "Mordor Intelligence", url: "https://www.mordorintelligence.com", icon: "fas fa-lightbulb" },
+  { name: "6W Research", url: "https://www.6wresearch.com", icon: "fas fa-chart-pie" },
+  { name: "Perplexity AI", url: "https://www.perplexity.ai", icon: "fas fa-robot" }
+];
+      },
     ];
   }
 
@@ -1651,6 +1682,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
