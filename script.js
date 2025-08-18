@@ -623,14 +623,32 @@ class NovaBootcamp {
         presentationPdf: "./assets/files/MarketResearch.pdf",
         summaryPdf: "./assets/files/Intro to Business Summary.pdf",
         recommendedVideos: [
-          {
-            title: "What is Entrepreneurship?",
-            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
-            duration: "12:15",
-            description: "Understanding the fundamentals of entrepreneurship and business creation."
-          },
+        {
+    title: "What is Marketing Research? | Business Clinic | Dr. Ihab Muslim",
+    url: "https://youtu.be/48RzmraIrJA?si=9LqJUCr0yyBgv7W_",
+    duration: "05:10",
+    description: "An in-depth discussion on the importance and methodologies of marketing research."
+  },
+  {
+    title: "What Does Market Research Mean?",
+    url: "https://youtu.be/WoIn4xgyBBA?si=Go0vK6tG5kJKzl51",
+    duration: "05:10",
+    description: "A comprehensive guide to understanding market research and its applications."
+  },
+  {
+    title: "Market Research Explained",
+    url: "https://youtu.be/JaWryt_e3Vk?si=K1SUs-mvOhG0WTZ7",
+    duration: "10:15",
+    description: "An educational video detailing the process and significance of market research."
+  },
+  {
+    title: "Online Market Research",
+    url: "https://youtu.be/LMM0MDzHmEU?si=3mS7rQfdTYCm0GRb",
+    duration: "1.5 Hour",
+    description: "Exploring the techniques and tools for conducting market research online."
+  }
           ],
-        task: "No Task Required.",
+        task: "S00N.",
      resources : [
        { name: "Invest in Egypt", url: "https://www.investinegypt.gov.eg", icon: "fas fa-landmark" },
        { name: "Statista", url: "https://www.statista.com", icon: "fas fa-chart-line" },
@@ -1682,6 +1700,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
