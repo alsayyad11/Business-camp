@@ -618,10 +618,10 @@ class NovaBootcamp {
         date: "August 17, 2025",
         duration: "3 hours",
         level: "Intermediate",
-        description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
+        description: "A beginner-friendly session that introduces the key concepts and tools of market research. You'll learn how to collect and analyze data to understand customer needs, evaluate competitors, and identify business opportunities, helping you make informed strategic decisions.",
         coverImage: "./assets/images/MR.png",
         presentationPdf: "./assets/files/MarketResearch.pdf",
-        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
+        summaryPdf: "./assets/files/x",
         recommendedVideos: [
         {
     title: "What is Marketing Research? | Business Clinic | Dr. Ihab Muslim",
@@ -1700,6 +1700,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
