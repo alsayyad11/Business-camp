@@ -640,7 +640,7 @@ class NovaBootcamp {
        { name: "Mordor Intelligence", url: "https://www.mordorintelligence.com", icon: "fas fa-lightbulb" },
        { name: "6W Research", url: "https://www.6wresearch.com", icon: "fas fa-chart-pie" },
        { name: "Perplexity AI", url: "https://www.perplexity.ai", icon: "fas fa-robot" }
-       ];
+       ]
       },
     ];
   }
@@ -1682,6 +1682,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
