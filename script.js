@@ -591,7 +591,7 @@ class NovaBootcamp {
             duration: "1 Hour",
             description:"The Lean Startup teaches entrepreneurs to build businesses by testing ideas early, using a Minimum Viable Product (MVP), and refining the product based on real customer feedback. The key idea is to iterate quickly and learn from mistakes to save time, money, and reduce risk. It focuses on data-driven decisions and continuous improvement."
           },
-   {
+          {
             title: "What is Value Proposition?",
             url: "https://youtu.be/yskTFlm_Sl8?si=LfZCic512KNiJI4y",
             duration: "1 Hour",
@@ -611,7 +611,7 @@ class NovaBootcamp {
           { name: "The Lean Startup", url: "https://www.linkedin.com/pulse/%D9%85%D9%84%D8%AE%D8%B5-%D9%83%D8%AA%D8%A7%D8%A8-lean-startup-ahmad-el-saeed-ny7yf/", icon: "fas fa-search" }
         ]
       },
- {
+      {
         id: 4,
         title: "Market Research",
         instructor: "Abdallah Altaqawy",
@@ -631,16 +631,16 @@ class NovaBootcamp {
           },
           ],
         task: "No Task Required.",
-     resources = [
-  { name: "Invest in Egypt", url: "https://www.investinegypt.gov.eg", icon: "fas fa-landmark" },
-  { name: "Statista", url: "https://www.statista.com", icon: "fas fa-chart-line" },
-  { name: "Credence Research", url: "https://www.credenceresearch.com", icon: "fas fa-search" },
-  { name: "DataIntelo", url: "https://dataintelo.com", icon: "fas fa-database" },
-  { name: "Market Research Future", url: "https://www.marketresearchfuture.com", icon: "fas fa-briefcase" },
-  { name: "Mordor Intelligence", url: "https://www.mordorintelligence.com", icon: "fas fa-lightbulb" },
-  { name: "6W Research", url: "https://www.6wresearch.com", icon: "fas fa-chart-pie" },
-  { name: "Perplexity AI", url: "https://www.perplexity.ai", icon: "fas fa-robot" }
-];
+     resources : [
+       { name: "Invest in Egypt", url: "https://www.investinegypt.gov.eg", icon: "fas fa-landmark" },
+       { name: "Statista", url: "https://www.statista.com", icon: "fas fa-chart-line" },
+       { name: "Credence Research", url: "https://www.credenceresearch.com", icon: "fas fa-search" },
+       { name: "DataIntelo", url: "https://dataintelo.com", icon: "fas fa-database" },
+       { name: "Market Research Future", url: "https://www.marketresearchfuture.com", icon: "fas fa-briefcase" },
+       { name: "Mordor Intelligence", url: "https://www.mordorintelligence.com", icon: "fas fa-lightbulb" },
+       { name: "6W Research", url: "https://www.6wresearch.com", icon: "fas fa-chart-pie" },
+       { name: "Perplexity AI", url: "https://www.perplexity.ai", icon: "fas fa-robot" }
+       ];
       },
     ];
   }
@@ -1682,6 +1682,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
