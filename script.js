@@ -528,11 +528,18 @@ class NovaBootcamp {
           },
         ],
         task: "No Task Required.",
-        resources: [
-          { name: "What is entrepreneurship", url: "https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9_%D8%A3%D8%B9%D9%85%D8%A7%D9%84", icon: "fas fa-toolbox" },
-          { name: "10 Differences Between Entrepreneurship and Business Management", url: "https://businessbelarabi.com/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/", icon: "fas fa-chart-bar" },
-          { name: "What are the types of entrepreneurship and what type of entrepreneur are you?", url: "https://www.for9a.com/learn/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D9%88%D8%A3%D9%8A-%D9%86%D9%88%D8%B9-%D9%85%D9%86-%D8%B1%D9%88%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A3%D9%86%D8%AA", icon: "fas fa-search" }
-        ]
+        resources:[
+  { "name": "The Startup Graveyard", "url": "https://www.thestartupgraveyard.com/", "icon": "fas fa-ghost" },
+  { "name": "The $100 Startup (book)", "url": "https://100dollarstartup.com/", "icon": "fas fa-book" },
+  { "name": "Crunchbase", "url": "https://www.crunchbase.com/", "icon": "fas fa-database" },
+  { "name": "Failory (Failed Startups)", "url": "https://www.failory.com/failures", "icon": "fas fa-exclamation-circle" },
+  { "name": "Dead Startup Toys", "url": "https://deadstartuptoys.com/", "icon": "fas fa-archive" },
+  { "name": "Startup Graveyard (Africa)", "url": "https://startupgraveyard.africa/", "icon": "fas fa-globe-africa" },
+  { "name": "What is entrepreneurship", "url": "https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9_%D8%A3%D8%B9%D9%85%D8%A7%D9%84", "icon": "fas fa-toolbox" },
+  { "name": "10 Differences Between Entrepreneurship and Business Management", "url": "https://businessbelarabi.com/%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/%D9%85%D8%A7-%D9%87%D9%8A-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84/", "icon": "fas fa-chart-bar" },
+  { "name": "What are the types of entrepreneurship and what type of entrepreneur are you?", "url": "https://www.for9a.com/learn/%D9%85%D8%A7-%D9%87%D9%8A-%D8%A3%D9%86%D9%88%D8%A7%D8%B9-%D8%B1%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D9%88%D8%A3%D9%8A-%D9%86%D9%88%D8%B9-%D9%85%D9%86-%D8%B1%D9%88%D8%A7%D8%AF-%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A3%D9%86%D8%AA", "icon": "fas fa-search" }
+]
+
       },
       {
         id: 2,
@@ -1761,6 +1768,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
