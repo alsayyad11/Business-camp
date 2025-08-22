@@ -660,6 +660,44 @@ class NovaBootcamp {
        { name: "Perplexity AI", url: "https://www.perplexity.ai", icon: "fas fa-robot" }
        ]
       },
+        {
+        id: 5,
+        title: "Business Model Canvas - BMC",
+        instructor: "Basant Adel",
+        date: "August 19, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Learn how to generate ideas and solve problems creatively using powerful tools and techniques. In this session, we’ll apply SCAMPER to spark fresh concepts, set criteria to evaluate them, and use utopia thinking to imagine ideal solutions. Then, we’ll bring those ideas to life by shaping them into a Minimum Viable Product (MVP) and a prototype ready for testing. Perfect for entrepreneurs, designers, and innovators who want to turn bold ideas into tangible results",
+        coverImage: "./assets/images/BMC.png",
+        presentationPdf: "./assets/files/BMC.pdf",
+        summaryPdf: "./assets/files/y.pdf",
+        recommendedVideos: [
+           {
+    title: "Your Guide to Building a Successful Business Model",
+    url: "https://youtu.be/HfeBcMasa6I?si=2uCgCdqcPFJRxvHr",
+    duration: "1 Hour",
+    description: "An in-depth discussion on the structure, applications, and strategic value of the Business Model Canvas."
+  },
+  {
+    title: "Business Model Canvas",
+    url: "https://youtu.be/w4ceSLJVNns?si=OFMaBnzC49YBDEVi",
+    duration: "05:10",
+    description: "A simple guide to understanding and applying the Business Model Canvas."
+  },
+  {
+    title: "Canvas Business Model",
+    url: "https://youtu.be/uT1D7j3xfjU?si=IYvJap9Lyc4hGFWf",
+    duration: "10:15",
+    description: "An urgent look at why the Business Model Canvas is essential—and how lacking it puts your startup at risk."
+  },
+        ],
+        task: "Create a Business Model Canvas for your startup",
+        resources: [
+          { name: "What is Value Proposition", url: "https://ar.wikipedia.org/wiki/%D9%82%D9%8A%D9%85%D8%A9_%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9", icon: "fas fa-toolbox" },
+          { name: "SCAMPER Tool", url: "https://sharjah24.ae/ar/Articles/2024/10/23/NJ817", icon: "fas fa-chart-bar" },
+          { name: "The Lean Startup", url: "https://www.linkedin.com/pulse/%D9%85%D9%84%D8%AE%D8%B5-%D9%83%D8%AA%D8%A7%D8%A8-lean-startup-ahmad-el-saeed-ny7yf/", icon: "fas fa-search" }
+        ]
+      },
     ];
   }
 
@@ -1700,6 +1738,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
