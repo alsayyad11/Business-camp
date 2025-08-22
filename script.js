@@ -730,21 +730,21 @@ class NovaBootcamp {
       {
         id: 1,
         name: "خضر و بزنس",
-        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        description: "Khedr W Business, led by Dr. Mohamed Hossam Khedr, delivers practical, insightful content on entrepreneurship, management, marketing, and investment, helping entrepreneurs build startups, achieve sustainable growth, and succeed with clarity and confidence.",
         avatar: "./assets/images/khedr.jpg",
         url: "https://www.youtube.com/@khedrwb"
       },
       {
         id: 2,
         name: "Ehab Mesallum",
-        description: "Learn digital marketing strategies and techniques from industry experts and professionals.",
+        description: "Dr. Ehab Mesallum’s channel is the largest Arabic platform for management and marketing, delivering practical, simplified lessons that help entrepreneurs, managers, and business owners develop operations, improve leadership, and increase sustainable sales effectively.",
         avatar: "./assets/images/ehab.jpg",
         url: "https://www.youtube.com/@ehabmes"
       },
    {
         id: 3,
         name: "Business Bel Arabi",
-        description: "Business in Arabic aims to help people develop themselves and their businesses while avoiding common mistakes, based on well-known management and entrepreneurship models. We expanded our focus from just business to the whole life of every individual, launching a project with the slogan: You are the CEO of your life. Our goal is to develop all aspects of life—financial, business, and mindset.",
+        description: "Business بالعربي podcast shares inspiring content on entrepreneurship, self-development, and management, delivering real stories and practical insights that empower entrepreneurs and professionals to build successful, balanced lives and impactful, sustainable businesses.",
         avatar: "./assets/images/businessarabic.jpg",
         url: "https://www.youtube.com/@Businessbelarabi"
       },
@@ -1761,6 +1761,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
