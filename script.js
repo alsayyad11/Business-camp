@@ -692,11 +692,34 @@ class NovaBootcamp {
   },
         ],
         task: "Create a Business Model Canvas for your startup",
-        resources: [
-          { name: "What is Value Proposition", url: "https://ar.wikipedia.org/wiki/%D9%82%D9%8A%D9%85%D8%A9_%D9%85%D9%82%D8%AA%D8%B1%D8%AD%D8%A9", icon: "fas fa-toolbox" },
-          { name: "SCAMPER Tool", url: "https://sharjah24.ae/ar/Articles/2024/10/23/NJ817", icon: "fas fa-chart-bar" },
-          { name: "The Lean Startup", url: "https://www.linkedin.com/pulse/%D9%85%D9%84%D8%AE%D8%B5-%D9%83%D8%AA%D8%A7%D8%A8-lean-startup-ahmad-el-saeed-ny7yf/", icon: "fas fa-search" }
-        ]
+      resources: [
+  {
+    name: "Business Model Canvas Definition – MeemApps",
+    url: "https://www.meemapps.com/term/business-model-canvas",
+    icon: "fas fa-business-time"
+  },
+  {
+    name: "Comprehensive BMC Guide – LinkedIn Article",
+    url: "https://www.linkedin.com/pulse/%D8%B4%D8%B1%D8%AD-%D9%83%D8%A7%D9%85%D9%84-%D9%84%D9%84%D9%80business-model-canvas-%D9%85%D8%B9-%D9%86%D9%85%D9%88%D8%B0%D8%AC-%D8%B9%D9%85%D9%84%D9%8A-bahae-eddine-halim/",
+    icon: "fas fa-chalkboard-teacher"
+  },
+  {
+    name: "Business Model Canvas – Wikipedia (English)",
+    url: "https://en.wikipedia.org/wiki/Business_model_canvas",
+    icon: "fas fa-wikipedia-w"
+  },
+  {
+    name: "Business Model Canvas Guidelines – Canva (Arabic)",
+    url: "https://www.canva.com/ar_eg/online-whiteboard/business-model-canvas/",
+    icon: "fas fa-pencil-ruler"
+  },
+  {
+    name: "Business Model Canvas Explained – Micromentor (Arabic)",
+    url: "https://ar.micromentor.org/blog/using-the-business-canvas-model-explained-and-template",
+    icon: "fas fa-lightbulb"
+  }
+]
+
       },
     ];
   }
@@ -1738,6 +1761,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
