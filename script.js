@@ -655,7 +655,7 @@ class NovaBootcamp {
     description: "Exploring the techniques and tools for conducting market research online."
   }
           ],
-        task: "S00N.",
+        task: "Create a Market Research for you idea.",
      resources : [
        { name: "Invest in Egypt", url: "https://www.investinegypt.gov.eg", icon: "fas fa-landmark" },
        { name: "Statista", url: "https://www.statista.com", icon: "fas fa-chart-line" },
@@ -724,6 +724,79 @@ class NovaBootcamp {
     name: "Business Model Canvas Explained – Micromentor (Arabic)",
     url: "https://ar.micromentor.org/blog/using-the-business-canvas-model-explained-and-template",
     icon: "fas fa-lightbulb"
+  }
+]
+
+      },
+{
+        id: 6,
+        title: "Presentation Skills & Pitching",
+        instructor: "Ahmed M Elsayyad",
+        date: "August 24, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Master the art of delivering compelling presentations and pitching your ideas with confidence. In this session, we’ll explore techniques to structure your story, engage your audience, and communicate your message with clarity and impact. You’ll learn how to craft persuasive pitches, handle questions with poise, and use visuals and storytelling to make your ideas unforgettable. Perfect for entrepreneurs, professionals, and anyone who wants to turn their ideas into captivating presentations that inspire action.",
+        coverImage: "./assets/images/Presentation.png",
+        presentationPdf: "./assets/files/Presentation skills.pdf",
+        summaryPdf: "./assets/files/y.pdf",
+        recommendedVideos: [
+  {
+    "title": "Presentation Good/Bad Examples",
+    "url": "https://youtu.be/S5c1susCPAE?si=FYARU1mm3up54mEM",
+    "duration": "08:23",
+    "description": "Examples of effective and ineffective presentation techniques to help you improve your own skills."
+  },
+  {
+    "title": "How to Overcome the Fear of Presentations – The Confident Speaker",
+    "url": "https://youtu.be/kTrszTOyOlI?si=35jZLJNptrEQncVx",
+    "duration": "12:45",
+    "description": "Techniques and mindset tips to overcome anxiety and present confidently in front of any audience."
+  },
+  {
+    "title": "How to Master the Art of Speaking – Talk Like TED Summary",
+    "url": "https://youtu.be/54vid9p0jRs?si=FPd6xDLMLUMRSiUe",
+    "duration": "15:30",
+    "description": "A summary of the 'Talk Like TED' book with key strategies to deliver powerful and memorable presentations."
+  },
+  {
+    "title": "Public Speaking Skills: Overcoming Fear",
+    "url": "https://youtu.be/es125E6meAE?si=fVp4H6-8hoZZXaUz",
+    "duration": "09:50",
+    "description": "Step-by-step guidance on improving public speaking skills and handling nerves in live presentations."
+  },
+  {
+    "title": "How I Overcame My Fear of Public Speaking | TEDx",
+    "url": "https://youtu.be/PkH3Qy8Kv3A?si=HQ6g2SraTTHti3Lc",
+    "duration": "18:10",
+    "description": "A personal TEDx talk sharing the journey of overcoming public speaking fear and gaining confidence."
+  }
+        ],
+        task: "N0 task Needed",
+      resources: [
+  {
+    "name": "Presentation & Pitching Skills – Business Be",
+    "url": "https://businessbelarabi.com/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-360/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-presentation-skills/",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "name": "Academic Presentation Skills – ResearchGate",
+    "url": "https://www.researchgate.net/publication/340234418_mhadrt_mharat_alrd_walalqa_bastkhdam_alwsayl_altknwlwjya_Academic_presentation_skills",
+    "icon": "fas fa-book"
+  },
+  {
+    "name": "TEDx YouTube Channel",
+    "url": "https://www.youtube.com/@TEDx",
+    "icon": "fab fa-youtube"
+  },
+  {
+    "name": "TED YouTube Channel",
+    "url": "https://www.youtube.com/@TED",
+    "icon": "fab fa-youtube"
+  },
+  {
+    "name": "Presentation & Pitching Certificate – M3aarf",
+    "url": "https://www.m3aarf.com/certificate/15381/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-%D9%88%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-video",
+    "icon": "fas fa-certificate"
   }
 ]
 
@@ -1768,6 +1841,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
