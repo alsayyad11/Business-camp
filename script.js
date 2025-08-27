@@ -628,7 +628,7 @@ class NovaBootcamp {
         description: "A beginner-friendly session that introduces the key concepts and tools of market research. You'll learn how to collect and analyze data to understand customer needs, evaluate competitors, and identify business opportunities, helping you make informed strategic decisions.",
         coverImage: "./assets/images/MR.png",
         presentationPdf: "./assets/files/MarketResearch.pdf",
-        summaryPdf: "./assets/files/x",
+        summaryPdf: "./assets/files/MarketResearchh.pdf",
         recommendedVideos: [
         {
     title: "What is Marketing Research? | Business Clinic | Dr. Ihab Muslim",
@@ -1841,6 +1841,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
