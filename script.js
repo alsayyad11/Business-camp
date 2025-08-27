@@ -801,6 +801,80 @@ class NovaBootcamp {
 ]
 
       },
+
+    {
+        id: 7,
+        title: "Introduction to marketing",
+        instructor: "Hoda Reda",
+        date: "August 27, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Dive into the fundamentals of marketing in this introductory session. We’ll explore what marketing really is, its history, and how it has evolved over time. You’ll learn about the different types of marketing—from traditional to digital—and understand key concepts like target audience, branding, and the marketing mix. This session will give you the tools to think strategically about promoting products or services, creating value, and connecting with customers effectively. Ideal for students, professionals, and anyone curious about the world of marketing.", 
+        coverImage: "./assets/images/MAR.png",
+        presentationPdf: "./assets/files/Marketing.pdf",
+        summaryPdf: "./assets/files/y.pdf",
+        recommendedVideos: [
+  {
+    "title": "Presentation Good/Bad Examples",
+    "url": "https://youtu.be/S5c1susCPAE?si=FYARU1mm3up54mEM",
+    "duration": "08:23",
+    "description": "Examples of effective and ineffective presentation techniques to help you improve your own skills."
+  },
+  {
+    "title": "How to Overcome the Fear of Presentations – The Confident Speaker",
+    "url": "https://youtu.be/kTrszTOyOlI?si=35jZLJNptrEQncVx",
+    "duration": "12:45",
+    "description": "Techniques and mindset tips to overcome anxiety and present confidently in front of any audience."
+  },
+  {
+    "title": "How to Master the Art of Speaking – Talk Like TED Summary",
+    "url": "https://youtu.be/54vid9p0jRs?si=FPd6xDLMLUMRSiUe",
+    "duration": "15:30",
+    "description": "A summary of the 'Talk Like TED' book with key strategies to deliver powerful and memorable presentations."
+  },
+  {
+    "title": "Public Speaking Skills: Overcoming Fear",
+    "url": "https://youtu.be/es125E6meAE?si=fVp4H6-8hoZZXaUz",
+    "duration": "09:50",
+    "description": "Step-by-step guidance on improving public speaking skills and handling nerves in live presentations."
+  },
+  {
+    "title": "How I Overcame My Fear of Public Speaking | TEDx",
+    "url": "https://youtu.be/PkH3Qy8Kv3A?si=HQ6g2SraTTHti3Lc",
+    "duration": "18:10",
+    "description": "A personal TEDx talk sharing the journey of overcoming public speaking fear and gaining confidence."
+  }
+        ],
+        task: "N0 task Needed",
+      resources: [
+  {
+    "name": "Presentation & Pitching Skills – Business Be",
+    "url": "https://businessbelarabi.com/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-360/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-presentation-skills/",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "name": "Academic Presentation Skills – ResearchGate",
+    "url": "https://www.researchgate.net/publication/340234418_mhadrt_mharat_alrd_walalqa_bastkhdam_alwsayl_altknwlwjya_Academic_presentation_skills",
+    "icon": "fas fa-book"
+  },
+  {
+    "name": "TEDx YouTube Channel",
+    "url": "https://www.youtube.com/@TEDx",
+    "icon": "fab fa-youtube"
+  },
+  {
+    "name": "TED YouTube Channel",
+    "url": "https://www.youtube.com/@TED",
+    "icon": "fab fa-youtube"
+  },
+  {
+    "name": "Presentation & Pitching Certificate – M3aarf",
+    "url": "https://www.m3aarf.com/certificate/15381/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-%D9%88%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-video",
+    "icon": "fas fa-certificate"
+  }
+]
+
+      },
     ];
   }
 
@@ -1841,6 +1915,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
