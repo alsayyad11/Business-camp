@@ -815,62 +815,79 @@ class NovaBootcamp {
         summaryPdf: "./assets/files/y.pdf",
         recommendedVideos: [
   {
-    "title": "Presentation Good/Bad Examples",
-    "url": "https://youtu.be/S5c1susCPAE?si=FYARU1mm3up54mEM",
-    "duration": "08:23",
-    "description": "Examples of effective and ineffective presentation techniques to help you improve your own skills."
+    "title": "Marketing from A to Z | Learn Marketing",
+    "url": "https://youtu.be/uM_iBqkFXvE?si=x2piwJILrAfSFj3p",
+    "duration": "",
+    "description": "A comprehensive A–Z overview of marketing fundamentals and core concepts."
   },
   {
-    "title": "How to Overcome the Fear of Presentations – The Confident Speaker",
-    "url": "https://youtu.be/kTrszTOyOlI?si=35jZLJNptrEQncVx",
-    "duration": "12:45",
-    "description": "Techniques and mindset tips to overcome anxiety and present confidently in front of any audience."
+    "title": "Learn Marketing | Marketing Basics",
+    "url": "https://youtu.be/Qv0JoyF18ZM?si=X5mUz0APAeKKfgs1",
+    "duration": "",
+    "description": "Introductory video covering the basics of marketing and foundational ideas."
   },
   {
-    "title": "How to Master the Art of Speaking – Talk Like TED Summary",
-    "url": "https://youtu.be/54vid9p0jRs?si=FPd6xDLMLUMRSiUe",
-    "duration": "15:30",
-    "description": "A summary of the 'Talk Like TED' book with key strategies to deliver powerful and memorable presentations."
+    "title": "Explaining Philip Kotler's Marketing (Book 5) — Part 1",
+    "url": "https://youtu.be/-Rpe6TMK7pk?si=C_Y7-TltmBb6xuZL",
+    "duration": "",
+    "description": "A walkthrough/summary of Philip Kotler's marketing book (part 1)."
   },
   {
-    "title": "Public Speaking Skills: Overcoming Fear",
-    "url": "https://youtu.be/es125E6meAE?si=fVp4H6-8hoZZXaUz",
-    "duration": "09:50",
-    "description": "Step-by-step guidance on improving public speaking skills and handling nerves in live presentations."
+    "title": "Difference Between Marketing and Advertising — Marketing Plan (Part 1)",
+    "url": "https://youtu.be/sHPlbBLLiIU?si=1uIfOKF0PgLmwXRl",
+    "duration": "",
+    "description": "Explains the difference between marketing and advertising and introduces the marketing plan."
   },
   {
-    "title": "How I Overcame My Fear of Public Speaking | TEDx",
-    "url": "https://youtu.be/PkH3Qy8Kv3A?si=HQ6g2SraTTHti3Lc",
-    "duration": "18:10",
-    "description": "A personal TEDx talk sharing the journey of overcoming public speaking fear and gaining confidence."
+    "title": "How to Sell Anything to Anyone? (Al-Mukhabar Al-Iqtisadi+)",
+    "url": "https://youtu.be/ahxq9OBKpbU?si=9xHNZmSx9rE92dak",
+    "duration": "",
+    "description": "Sales techniques and practical tips on persuading customers and closing sales."
+  },
+  {
+    "title": "Marketing Is Business (and Maybe Life) — with Medhat Yassin (Petroli Podcast)",
+    "url": "https://youtu.be/i2s3ZKE-uks?si=u3u_XU_Ku4ODJBjZ",
+    "duration": "",
+    "description": "Podcast episode discussing the role of marketing in business and life."
+  },
+  {
+    "title": "Your Guide to Avoiding Failure: Common Beginner Business Mistakes (Petroli Podcast)",
+    "url": "https://youtu.be/0wrntvYKNEs?si=us2cqVsjXnr7Ywll",
+    "duration": "",
+    "description": "Advice on typical startup/business mistakes and how to avoid them — useful for beginner marketers and entrepreneurs."
   }
         ],
-        task: "N0 task Needed",
+        task: "S00N",
       resources: [
   {
-    "name": "Presentation & Pitching Skills – Business Be",
-    "url": "https://businessbelarabi.com/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-360/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-presentation-skills/",
-    "icon": "fas fa-chalkboard-teacher"
-  },
-  {
-    "name": "Academic Presentation Skills – ResearchGate",
-    "url": "https://www.researchgate.net/publication/340234418_mhadrt_mharat_alrd_walalqa_bastkhdam_alwsayl_altknwlwjya_Academic_presentation_skills",
+    "name": "Principles of Marketing – Osama Salah",
+    "url": "https://osamasalah.com/principles-of-marketing/",
     "icon": "fas fa-book"
   },
   {
-    "name": "TEDx YouTube Channel",
-    "url": "https://www.youtube.com/@TEDx",
-    "icon": "fab fa-youtube"
+    "name": "How to Start in Marketing – El Tasweeq Elyoum",
+    "url": "https://www.eltasweeqelyoum.com/how-to-start-in-marketing/",
+    "icon": "fas fa-rocket"
   },
   {
-    "name": "TED YouTube Channel",
-    "url": "https://www.youtube.com/@TED",
-    "icon": "fab fa-youtube"
+    "name": "Introduction to Marketing – Khder El Sayed (LinkedIn)",
+    "url": "https://www.linkedin.com/pulse/introduction-marketing-khder-el-sayed/",
+    "icon": "fab fa-linkedin"
   },
   {
-    "name": "Presentation & Pitching Certificate – M3aarf",
-    "url": "https://www.m3aarf.com/certificate/15381/%D9%85%D9%87%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%B1%D8%B6-%D9%88%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85-video",
-    "icon": "fas fa-certificate"
+    "name": "Marketing – Wikipedia (Arabic)",
+    "url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%B3%D9%88%D9%8A%D9%82",
+    "icon": "fab fa-wikipedia-w"
+  },
+  {
+    "name": "Marketing – Business Bel Arabi",
+    "url": "https://businessbelarabi.com/%D8%AA%D8%B3%D9%88%D9%8A%D9%82/",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "name": "Learn Digital Marketing Basics – eMarketing Academy",
+    "url": "https://emarketingacademy.org/%D8%AA%D8%B9%D9%84%D9%85-%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A-%D8%AF%D9%84%D9%8A%D9%84-%D8%B4%D8%A7%D9%85%D9%84/",
+    "icon": "fas fa-graduation-cap"
   }
 ]
 
@@ -1915,6 +1932,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
