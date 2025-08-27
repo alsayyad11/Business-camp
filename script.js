@@ -812,7 +812,7 @@ class NovaBootcamp {
         description: "Dive into the fundamentals of marketing in this introductory session. We’ll explore what marketing really is, its history, and how it has evolved over time. You’ll learn about the different types of marketing—from traditional to digital—and understand key concepts like target audience, branding, and the marketing mix. This session will give you the tools to think strategically about promoting products or services, creating value, and connecting with customers effectively. Ideal for students, professionals, and anyone curious about the world of marketing.", 
         coverImage: "./assets/images/MAR.png",
         presentationPdf: "./assets/files/Marketing.pdf",
-        summaryPdf: "./assets/files/y.pdf",
+        summaryPdf: "./assets/files/PresentationSkills.pdf",
         recommendedVideos: [
   {
     "title": "Marketing from A to Z | Learn Marketing",
@@ -1932,6 +1932,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
