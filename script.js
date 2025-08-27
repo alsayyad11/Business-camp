@@ -677,7 +677,7 @@ class NovaBootcamp {
         description: "Learn how to generate ideas and solve problems creatively using powerful tools and techniques. In this session, we’ll apply SCAMPER to spark fresh concepts, set criteria to evaluate them, and use utopia thinking to imagine ideal solutions. Then, we’ll bring those ideas to life by shaping them into a Minimum Viable Product (MVP) and a prototype ready for testing. Perfect for entrepreneurs, designers, and innovators who want to turn bold ideas into tangible results",
         coverImage: "./assets/images/BMC.png",
         presentationPdf: "./assets/files/BMC.pdf",
-        summaryPdf: "./assets/files/y.pdf",
+        summaryPdf: "./assets/files/Business Model Canvas - BMC.pdf",
         recommendedVideos: [
            {
     title: "Your Guide to Building a Successful Business Model",
@@ -1841,6 +1841,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
