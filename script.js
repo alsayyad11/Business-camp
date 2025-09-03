@@ -1127,6 +1127,13 @@ class NovaBootcamp {
         avatar: "./assets/images/3lm3ml.jpg",
         url: "https://www.youtube.com/@3lm3ml"
       },
+   {
+        id: 8,
+        name: "3lm&3ml",
+        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        avatar: "./assets/images/OG.jpg",
+        url: "https://www.youtube.com/@OrigamiBusiness"
+      },
     ];
   }
 
@@ -2112,6 +2119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
