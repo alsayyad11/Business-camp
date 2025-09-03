@@ -989,7 +989,7 @@ class NovaBootcamp {
         date: "September 2, 2025",
         duration: "3 hours",
         level: "Intermediate",
-        description: "Learn how to build a strong marketing plan that connects strategy with real-world execution. In this session, we’ll cover the step-by-step process of planning, from setting objectives and defining target markets to choosing the right tactics and measuring results. A key focus will be on PESTEL analysis—understanding the political, economic, social, technological, environmental, and legal factors that shape your market. You’ll see how this framework helps in spotting opportunities, reducing risks, and making smarter decisions. By the end, you’ll be ready to structure a marketing plan that is insightful, practical, and adaptable to change. Perfect for students, entrepreneurs, and marketing professionals aiming to sharpen their strategic skills.", 
+        description: "Learn how to create a strong marketing plan that links strategy with execution. We’ll walk through setting objectives, defining target markets, choosing tactics, and measuring results. A special focus is on PESTEL analysis—exploring political, economic, social, technological, environmental, and legal factors to spot opportunities, reduce risks, and make smarter decisions. By the end, you’ll know how to design a practical and adaptable plan, ideal for students, entrepreneurs, and marketing professionals.", 
         coverImage: "./assets/images/MP.png",
         presentationPdf: "./assets/files/Marketing plan .pdf",
         summaryPdf: "./assets/files/c.pdf",
@@ -2113,6 +2113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
