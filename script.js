@@ -1130,7 +1130,7 @@ class NovaBootcamp {
    {
         id: 8,
         name: "3lm&3ml",
-        description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
+        description: "A group of professionals working on 2 levels; first trying to provide practical business studies to prepare different individuals to advance in their careers and second providing consultation and counseling to small and medium enterprises",
         avatar: "./assets/images/OGB.jpg",
         url: "https://www.youtube.com/@OrigamiBusiness"
       },
@@ -2119,6 +2119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
