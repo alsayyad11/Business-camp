@@ -994,48 +994,42 @@ class NovaBootcamp {
         presentationPdf: "./assets/files/Marketing plan .pdf",
         summaryPdf: "./assets/files/c.pdf",
         recommendedVideos: [
-  {
-    "title": "Marketing from A to Z | Learn Marketing",
-    "url": "https://youtu.be/uM_iBqkFXvE?si=x2piwJILrAfSFj3p",
-    "duration": "",
-    "description": "A comprehensive A–Z overview of marketing fundamentals and core concepts."
-  },
-  {
-    "title": "Learn Marketing | Marketing Basics",
-    "url": "https://youtu.be/Qv0JoyF18ZM?si=X5mUz0APAeKKfgs1",
-    "duration": "",
-    "description": "Introductory video covering the basics of marketing and foundational ideas."
-  },
-  {
-    "title": "Explaining Philip Kotler's Marketing (Book 5) — Part 1",
-    "url": "https://youtu.be/-Rpe6TMK7pk?si=C_Y7-TltmBb6xuZL",
-    "duration": "",
-    "description": "A walkthrough/summary of Philip Kotler's marketing book (part 1)."
-  },
-  {
-    "title": "Difference Between Marketing and Advertising — Marketing Plan (Part 1)",
-    "url": "https://youtu.be/sHPlbBLLiIU?si=1uIfOKF0PgLmwXRl",
-    "duration": "",
-    "description": "Explains the difference between marketing and advertising and introduces the marketing plan."
-  },
-  {
-    "title": "How to Sell Anything to Anyone? (Al-Mukhabar Al-Iqtisadi+)",
-    "url": "https://youtu.be/ahxq9OBKpbU?si=9xHNZmSx9rE92dak",
-    "duration": "",
-    "description": "Sales techniques and practical tips on persuading customers and closing sales."
-  },
-  {
-    "title": "Marketing Is Business (and Maybe Life) — with Medhat Yassin (Petroli Podcast)",
-    "url": "https://youtu.be/i2s3ZKE-uks?si=u3u_XU_Ku4ODJBjZ",
-    "duration": "",
-    "description": "Podcast episode discussing the role of marketing in business and life."
-  },
-  {
-    "title": "Your Guide to Avoiding Failure: Common Beginner Business Mistakes (Petroli Podcast)",
-    "url": "https://youtu.be/0wrntvYKNEs?si=us2cqVsjXnr7Ywll",
-    "duration": "",
-    "description": "Advice on typical startup/business mistakes and how to avoid them — useful for beginner marketers and entrepreneurs."
-  }
+{
+  "title": "How to write Mission, Vision and Corporate values", 
+  "url": "https://youtu.be/q-fNN9y8t80?si=Mr9UWGEB_HXcb7bK",
+  "duration": "10:15", 
+  "description": "Learn how startups can write an effective Mission, Vision, and Corporate Values to build a strong identity, attract investors, and guide sustainable growth."
+}, 
+{ 
+  "title": "SOSTAC Technology in Marketing",
+  "url": "https://youtu.be/987ULDZOhdI?si=DRGD7-Yu7Aqo3rrP",
+  "duration": "10:15", 
+  "description": "SOSTAC Analysis is a structured framework that analyzes the current situation, sets clear objectives, defines strategies, outlines tactics, plans actions, and establishes control measures."
+},
+{
+  "title": "Situational Analysis Porter's Five Forces, SWOT, PESTEL .", 
+  "url": "https://youtu.be/8Z9_QKKl7Tg?si=gMp8h4VRIHz4EgfU",
+  "duration": "10:15", 
+  "description": "SOSTAC Analysis is a structured framework that analyzes the current situation, sets clear objectives, defines strategies, outlines tactics, plans actions, and establishes control measures."
+},
+{
+  "title": "target audience VS buyer persona - practical application", 
+  "url": "https://youtu.be/zgRf0jmO_3E?si=SVmTYFzZzL3vaz89",
+  "duration": "15:20", 
+  "description": "Discover the key difference between Target Audience and Buyer Persona with a practical example that makes it simple and clear."
+},
+{
+  "title": "PEST Analysis", 
+  "url": "https://youtu.be/Wp30UGL7iKM?si=GozASP_tH48QYGNi",
+  "duration": "00:05", 
+  "description": "Understand PEST Analysis and learn how political, economic, social, technological, legal, and environmental factors impact your business strategy." 
+},
+{
+  "title": "PESTEL Analysis ", 
+  "url": "https://youtu.be/v1ibmzbdMqg?si=vbkdj_JaVvDbr_re",
+  "duration": "00:05", 
+  "description": "Understand PESTLE Analysis and learn how political, economic, social, technological, legal, and environmental factors impact your business strategy." 
+}
         ],
         task: "S00N",
       resources: [
@@ -2119,6 +2113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
