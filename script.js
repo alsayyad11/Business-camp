@@ -804,7 +804,7 @@ class NovaBootcamp {
 
     {
         id: 7,
-        title: "Introduction to marketing",
+        title: "Marketing Part 01",
         instructor: "Hoda Reda",
         date: "August 27, 2025",
         duration: "3 hours",
@@ -812,6 +812,186 @@ class NovaBootcamp {
         description: "Dive into the fundamentals of marketing in this introductory session. We’ll explore what marketing really is, its history, and how it has evolved over time. You’ll learn about the different types of marketing—from traditional to digital—and understand key concepts like target audience, branding, and the marketing mix. This session will give you the tools to think strategically about promoting products or services, creating value, and connecting with customers effectively. Ideal for students, professionals, and anyone curious about the world of marketing.", 
         coverImage: "./assets/images/MAR.png",
         presentationPdf: "./assets/files/Marketing.pdf",
+        summaryPdf: "./assets/files/c.pdf",
+        recommendedVideos: [
+  {
+    "title": "Marketing from A to Z | Learn Marketing",
+    "url": "https://youtu.be/uM_iBqkFXvE?si=x2piwJILrAfSFj3p",
+    "duration": "",
+    "description": "A comprehensive A–Z overview of marketing fundamentals and core concepts."
+  },
+  {
+    "title": "Learn Marketing | Marketing Basics",
+    "url": "https://youtu.be/Qv0JoyF18ZM?si=X5mUz0APAeKKfgs1",
+    "duration": "",
+    "description": "Introductory video covering the basics of marketing and foundational ideas."
+  },
+  {
+    "title": "Explaining Philip Kotler's Marketing (Book 5) — Part 1",
+    "url": "https://youtu.be/-Rpe6TMK7pk?si=C_Y7-TltmBb6xuZL",
+    "duration": "",
+    "description": "A walkthrough/summary of Philip Kotler's marketing book (part 1)."
+  },
+  {
+    "title": "Difference Between Marketing and Advertising — Marketing Plan (Part 1)",
+    "url": "https://youtu.be/sHPlbBLLiIU?si=1uIfOKF0PgLmwXRl",
+    "duration": "",
+    "description": "Explains the difference between marketing and advertising and introduces the marketing plan."
+  },
+  {
+    "title": "How to Sell Anything to Anyone? (Al-Mukhabar Al-Iqtisadi+)",
+    "url": "https://youtu.be/ahxq9OBKpbU?si=9xHNZmSx9rE92dak",
+    "duration": "",
+    "description": "Sales techniques and practical tips on persuading customers and closing sales."
+  },
+  {
+    "title": "Marketing Is Business (and Maybe Life) — with Medhat Yassin (Petroli Podcast)",
+    "url": "https://youtu.be/i2s3ZKE-uks?si=u3u_XU_Ku4ODJBjZ",
+    "duration": "",
+    "description": "Podcast episode discussing the role of marketing in business and life."
+  },
+  {
+    "title": "Your Guide to Avoiding Failure: Common Beginner Business Mistakes (Petroli Podcast)",
+    "url": "https://youtu.be/0wrntvYKNEs?si=us2cqVsjXnr7Ywll",
+    "duration": "",
+    "description": "Advice on typical startup/business mistakes and how to avoid them — useful for beginner marketers and entrepreneurs."
+  }
+        ],
+        task: "S00N",
+      resources: [
+  {
+    "name": "Principles of Marketing – Osama Salah",
+    "url": "https://osamasalah.com/principles-of-marketing/",
+    "icon": "fas fa-book"
+  },
+  {
+    "name": "How to Start in Marketing – El Tasweeq Elyoum",
+    "url": "https://www.eltasweeqelyoum.com/how-to-start-in-marketing/",
+    "icon": "fas fa-rocket"
+  },
+  {
+    "name": "Introduction to Marketing – Khder El Sayed (LinkedIn)",
+    "url": "https://www.linkedin.com/pulse/introduction-marketing-khder-el-sayed/",
+    "icon": "fab fa-linkedin"
+  },
+  {
+    "name": "Marketing – Wikipedia (Arabic)",
+    "url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%B3%D9%88%D9%8A%D9%82",
+    "icon": "fab fa-wikipedia-w"
+  },
+  {
+    "name": "Marketing – Business Bel Arabi",
+    "url": "https://businessbelarabi.com/%D8%AA%D8%B3%D9%88%D9%8A%D9%82/",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "name": "Learn Digital Marketing Basics – eMarketing Academy",
+    "url": "https://emarketingacademy.org/%D8%AA%D8%B9%D9%84%D9%85-%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A-%D8%AF%D9%84%D9%8A%D9%84-%D8%B4%D8%A7%D9%85%D9%84/",
+    "icon": "fas fa-graduation-cap"
+  }
+]
+      },
+
+  {
+        id: 8,
+        title: "Marketing Part 02",
+        instructor: "Abdallah Altaqawy",
+        date: "August 31, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Dive into the fundamentals of marketing in this introductory session. We’ll explore what marketing really is, its history, and how it has evolved over time. You’ll learn about the different types of marketing—from traditional to digital—and understand key concepts like target audience, branding, and the marketing mix. This session will give you the tools to think strategically about promoting products or services, creating value, and connecting with customers effectively. Ideal for students, professionals, and anyone curious about the world of marketing.", 
+        coverImage: "./assets/images/MAR.png",
+        presentationPdf: "./assets/files/Marketing 2 .pdf",
+        summaryPdf: "./assets/files/c.pdf",
+        recommendedVideos: [
+  {
+    "title": "Marketing from A to Z | Learn Marketing",
+    "url": "https://youtu.be/uM_iBqkFXvE?si=x2piwJILrAfSFj3p",
+    "duration": "",
+    "description": "A comprehensive A–Z overview of marketing fundamentals and core concepts."
+  },
+  {
+    "title": "Learn Marketing | Marketing Basics",
+    "url": "https://youtu.be/Qv0JoyF18ZM?si=X5mUz0APAeKKfgs1",
+    "duration": "",
+    "description": "Introductory video covering the basics of marketing and foundational ideas."
+  },
+  {
+    "title": "Explaining Philip Kotler's Marketing (Book 5) — Part 1",
+    "url": "https://youtu.be/-Rpe6TMK7pk?si=C_Y7-TltmBb6xuZL",
+    "duration": "",
+    "description": "A walkthrough/summary of Philip Kotler's marketing book (part 1)."
+  },
+  {
+    "title": "Difference Between Marketing and Advertising — Marketing Plan (Part 1)",
+    "url": "https://youtu.be/sHPlbBLLiIU?si=1uIfOKF0PgLmwXRl",
+    "duration": "",
+    "description": "Explains the difference between marketing and advertising and introduces the marketing plan."
+  },
+  {
+    "title": "How to Sell Anything to Anyone? (Al-Mukhabar Al-Iqtisadi+)",
+    "url": "https://youtu.be/ahxq9OBKpbU?si=9xHNZmSx9rE92dak",
+    "duration": "",
+    "description": "Sales techniques and practical tips on persuading customers and closing sales."
+  },
+  {
+    "title": "Marketing Is Business (and Maybe Life) — with Medhat Yassin (Petroli Podcast)",
+    "url": "https://youtu.be/i2s3ZKE-uks?si=u3u_XU_Ku4ODJBjZ",
+    "duration": "",
+    "description": "Podcast episode discussing the role of marketing in business and life."
+  },
+  {
+    "title": "Your Guide to Avoiding Failure: Common Beginner Business Mistakes (Petroli Podcast)",
+    "url": "https://youtu.be/0wrntvYKNEs?si=us2cqVsjXnr7Ywll",
+    "duration": "",
+    "description": "Advice on typical startup/business mistakes and how to avoid them — useful for beginner marketers and entrepreneurs."
+  }
+        ],
+        task: "S00N",
+      resources: [
+  {
+    "name": "Principles of Marketing – Osama Salah",
+    "url": "https://osamasalah.com/principles-of-marketing/",
+    "icon": "fas fa-book"
+  },
+  {
+    "name": "How to Start in Marketing – El Tasweeq Elyoum",
+    "url": "https://www.eltasweeqelyoum.com/how-to-start-in-marketing/",
+    "icon": "fas fa-rocket"
+  },
+  {
+    "name": "Introduction to Marketing – Khder El Sayed (LinkedIn)",
+    "url": "https://www.linkedin.com/pulse/introduction-marketing-khder-el-sayed/",
+    "icon": "fab fa-linkedin"
+  },
+  {
+    "name": "Marketing – Wikipedia (Arabic)",
+    "url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%B3%D9%88%D9%8A%D9%82",
+    "icon": "fab fa-wikipedia-w"
+  },
+  {
+    "name": "Marketing – Business Bel Arabi",
+    "url": "https://businessbelarabi.com/%D8%AA%D8%B3%D9%88%D9%8A%D9%82/",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "name": "Learn Digital Marketing Basics – eMarketing Academy",
+    "url": "https://emarketingacademy.org/%D8%AA%D8%B9%D9%84%D9%85-%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A-%D8%AF%D9%84%D9%8A%D9%84-%D8%B4%D8%A7%D9%85%D9%84/",
+    "icon": "fas fa-graduation-cap"
+  }
+]
+      },
+
+  {
+        id: 9,
+        title: "Marketing Plan",
+        instructor: "Manar Ashraf",
+        date: "September 2, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Learn how to build a strong marketing plan that connects strategy with real-world execution. In this session, we’ll cover the step-by-step process of planning, from setting objectives and defining target markets to choosing the right tactics and measuring results. A key focus will be on PESTEL analysis—understanding the political, economic, social, technological, environmental, and legal factors that shape your market. You’ll see how this framework helps in spotting opportunities, reducing risks, and making smarter decisions. By the end, you’ll be ready to structure a marketing plan that is insightful, practical, and adaptable to change. Perfect for students, entrepreneurs, and marketing professionals aiming to sharpen their strategic skills.", 
+        coverImage: "./assets/images/MP.png",
+        presentationPdf: "./assets/files/Marketing plan .pdf",
         summaryPdf: "./assets/files/c.pdf",
         recommendedVideos: [
   {
@@ -1932,6 +2112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
