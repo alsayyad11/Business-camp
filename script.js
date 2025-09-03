@@ -1131,7 +1131,7 @@ class NovaBootcamp {
         id: 8,
         name: "3lm&3ml",
         description: "Amazing business content that will help you grow your entrepreneurial skills and knowledge.",
-        avatar: "./assets/images/OG.jpg",
+        avatar: "./assets/images/OGB.jpg",
         url: "https://www.youtube.com/@OrigamiBusiness"
       },
     ];
@@ -2119,6 +2119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
