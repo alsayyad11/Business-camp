@@ -1066,6 +1066,90 @@ class NovaBootcamp {
 ]
 
       },
+{
+        id: 10,
+        title: "Sales",
+        instructor: "Hoda Reda",
+        date: "September 9, 2025",
+        duration: "3 hours",
+        level: "Intermediate",
+        description: "Discover the essentials of building a winning sales strategy that turns prospects into loyal customers. In this session, we’ll cover the full sales cycle—from prospecting and lead qualification to pitching, handling objections, and closing deals. You’ll learn practical frameworks for understanding customer needs, tailoring your approach, and using tools like CRM systems to track performance. Special focus will be on consultative selling and value-based techniques that create trust and long-term relationships. By the end, you’ll have a clear roadmap for boosting your sales performance—perfect for students, entrepreneurs, and sales professionals aiming to grow their business.", 
+        coverImage: "./assets/images/sales.png",
+        presentationPdf: "./assets/files/sales.pdf",
+        summaryPdf: "./assets/files/c.pdf",
+        recommendedVideos: [
+{
+  "title": "How to write Mission, Vision and Corporate values", 
+  "url": "https://youtu.be/q-fNN9y8t80?si=Mr9UWGEB_HXcb7bK",
+  "duration": "10:15", 
+  "description": "Learn how startups can write an effective Mission, Vision, and Corporate Values to build a strong identity, attract investors, and guide sustainable growth."
+}, 
+{ 
+  "title": "SOSTAC Technology in Marketing",
+  "url": "https://youtu.be/987ULDZOhdI?si=DRGD7-Yu7Aqo3rrP",
+  "duration": "10:15", 
+  "description": "SOSTAC Analysis is a structured framework that analyzes the current situation, sets clear objectives, defines strategies, outlines tactics, plans actions, and establishes control measures."
+},
+{
+  "title": "Situational Analysis Porter's Five Forces, SWOT, PESTEL .", 
+  "url": "https://youtu.be/8Z9_QKKl7Tg?si=gMp8h4VRIHz4EgfU",
+  "duration": "10:15", 
+  "description": "SOSTAC Analysis is a structured framework that analyzes the current situation, sets clear objectives, defines strategies, outlines tactics, plans actions, and establishes control measures."
+},
+{
+  "title": "target audience VS buyer persona - practical application", 
+  "url": "https://youtu.be/zgRf0jmO_3E?si=SVmTYFzZzL3vaz89",
+  "duration": "15:20", 
+  "description": "Discover the key difference between Target Audience and Buyer Persona with a practical example that makes it simple and clear."
+},
+{
+  "title": "PEST Analysis", 
+  "url": "https://youtu.be/Wp30UGL7iKM?si=GozASP_tH48QYGNi",
+  "duration": "00:05", 
+  "description": "Understand PEST Analysis and learn how political, economic, social, technological, legal, and environmental factors impact your business strategy." 
+},
+{
+  "title": "PESTEL Analysis ", 
+  "url": "https://youtu.be/v1ibmzbdMqg?si=vbkdj_JaVvDbr_re",
+  "duration": "00:05", 
+  "description": "Understand PESTLE Analysis and learn how political, economic, social, technological, legal, and environmental factors impact your business strategy." 
+}
+        ],
+        task: "S00N",
+      resources: [
+  {
+    "name": "Principles of Marketing – Osama Salah",
+    "url": "https://osamasalah.com/principles-of-marketing/",
+    "icon": "fas fa-book"
+  },
+  {
+    "name": "How to Start in Marketing – El Tasweeq Elyoum",
+    "url": "https://www.eltasweeqelyoum.com/how-to-start-in-marketing/",
+    "icon": "fas fa-rocket"
+  },
+  {
+    "name": "Introduction to Marketing – Khder El Sayed (LinkedIn)",
+    "url": "https://www.linkedin.com/pulse/introduction-marketing-khder-el-sayed/",
+    "icon": "fab fa-linkedin"
+  },
+  {
+    "name": "Marketing – Wikipedia (Arabic)",
+    "url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%B3%D9%88%D9%8A%D9%82",
+    "icon": "fab fa-wikipedia-w"
+  },
+  {
+    "name": "Marketing – Business Bel Arabi",
+    "url": "https://businessbelarabi.com/%D8%AA%D8%B3%D9%88%D9%8A%D9%82/",
+    "icon": "fas fa-briefcase"
+  },
+  {
+    "name": "Learn Digital Marketing Basics – eMarketing Academy",
+    "url": "https://emarketingacademy.org/%D8%AA%D8%B9%D9%84%D9%85-%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D9%82-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A-%D8%AF%D9%84%D9%8A%D9%84-%D8%B4%D8%A7%D9%85%D9%84/",
+    "icon": "fas fa-graduation-cap"
+  }
+]
+
+      },
     ];
   }
 
@@ -2113,6 +2197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
