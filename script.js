@@ -1168,7 +1168,7 @@ class NovaBootcamp {
         duration: "3 hours",
         level: "Beginner",
         description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
-        coverImage: "./assets/images/Screenshot 2026-02-14 160138.png",
+        coverImage: "./assets/images/shahd.jpg",
         presentationPdf: "./assets/files/intro to entrepreneurship.pdf",
         summaryPdf: "./assets/files/Intro to Business Summary.pdf",
         recommendedVideos: [
@@ -2246,6 +2246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
