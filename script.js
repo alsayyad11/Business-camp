@@ -495,6 +495,8 @@ class NovaBootcamp {
           facebook: "https://www.facebook.com/share/19DRp9Byii/",
           linkedin: "https://www.linkedin.com/in/basant-adel-48254530b",
         },
+                },
+
               {
         id: 6,
         name: "Shahd Mourad",
@@ -504,7 +506,6 @@ class NovaBootcamp {
         social: {
           facebook: "https://www.facebook.com/share/test",
           linkedin: "https://www.linkedin.com/in/test",
-        },
       },
       },
     ];
@@ -2246,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
