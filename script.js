@@ -495,6 +495,17 @@ class NovaBootcamp {
           facebook: "https://www.facebook.com/share/19DRp9Byii/",
           linkedin: "https://www.linkedin.com/in/basant-adel-48254530b",
         },
+              {
+        id: 6,
+        name: "Shahd Mourad",
+        bio: "A Business graduate from Mansoura University. Currently the Head of the Business Committee at Breakin Point and Founder of Cuppy startup. I've participated in various local and international competitions. Passionate about innovation and building impactful startups.",
+        image: "./assets/images/shahd.jpg",
+        skills: ["Business Strategy", "Startup Development", "Innovation"],
+        social: {
+          facebook: "https://www.facebook.com/share/test",
+          linkedin: "https://www.linkedin.com/in/test",
+        },
+      },
       },
     ];
   }
@@ -1150,6 +1161,23 @@ class NovaBootcamp {
 ]
 
       },
+              id: 11,
+        title: "Introduction to Entrepreneurship",
+        instructor: "Shahd Mourad",
+        date: "Feb 14, 2026",
+        duration: "3 hours",
+        level: "Beginner",
+        description: "A beginner-friendly session that introduces the key concepts of starting a business. You'll learn about the entrepreneurial mindset, how to spot opportunities, and what it takes to turn an idea into a real project.",
+        coverImage: "./assets/images/Screenshot 2026-02-14 160138.png",
+        presentationPdf: "./assets/files/intro to entrepreneurship.pdf",
+        summaryPdf: "./assets/files/Intro to Business Summary.pdf",
+        recommendedVideos: [
+          {
+            title: "What is Entrepreneurship?",
+            url: "https://youtu.be/83M-lcIPIoI?si=ictpgx8GnW03-4ry",
+            duration: "12:15",
+            description: "Understanding the fundamentals of entrepreneurship and business creation."
+          },
     ];
   }
 
@@ -2197,6 +2225,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
