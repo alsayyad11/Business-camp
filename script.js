@@ -455,9 +455,9 @@ class NovaBootcamp {
       {
         id: 2,
         name: "Ahmed M Alsayyad",
-        bio: "Poduct Manager.",
+        bio: "From 0→1 | Turning ideas into scalable, market-ready MVPs | MBA Candidate | Head of Business @ Breakin Point | Agile & Mini-PMP | Strategic Business Analysis | Instructor.",
         image: "./assets/images/sayyad.jpeg",
-        skills: ["From 0→1 | Turning ideas into scalable, market-ready MVPs | MBA Candidate | Head of Business @ Breakin Point | Agile & Mini-PMP | Strategic Business Analysis | Instructor"],
+        skills: ["Product Manager", "From 0→1"],
         social: {
           facebook: "https://www.facebook.com/profile.php?id=100058504338456",
           linkedin: "https://www.linkedin.com/in/alsayyad11/",
@@ -2247,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
