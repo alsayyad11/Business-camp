@@ -500,7 +500,7 @@ class NovaBootcamp {
               {
         id: 6,
         name: "Shahd Mourad",
-        bio: "A Business graduate from Mansoura University. Currently the Head of the Business Committee at Breakin Point and Founder of Cuppy startup. I've participated in various local and international competitions. Passionate about innovation and building impactful startups.",
+        bio: "A Computer Science student specializing in Cybersecurity, with a strong focus on Penetration Testing. Currently a Business Instructor at Breakin Point, actively contributing to team development and knowledge sharing. Passionate about security, problem-solving, and bridging the gap between technical expertise and business strategy.",
         image: "./assets/images/shahd.jpg",
         skills: ["Business Strategy", "Startup Development", "Innovation"],
         social: {
@@ -2247,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
