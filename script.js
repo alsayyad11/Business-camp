@@ -459,7 +459,7 @@ class NovaBootcamp {
         image: "./assets/images/sayyad.jpeg",
         skills: ["Product Manager", "From 0→1"],
         social: {
-          facebook: "https://www.facebook.com/profile.php?id=100058504338456",
+          facebook: "https://www.facebook.com/alsayyad111/",
           linkedin: "https://www.linkedin.com/in/alsayyad11/",
         },
       },
@@ -502,7 +502,7 @@ class NovaBootcamp {
         name: "Shahd Mourad",
         bio: "A Computer Science student specializing in Cybersecurity, with a strong focus on Penetration Testing. Currently a Business Instructor at Breakin Point, actively contributing to team development and knowledge sharing. Passionate about security, problem-solving, and bridging the gap between technical expertise and business strategy.",
         image: "./assets/images/shahd.jpg",
-        skills: ["Business Strategy", "Startup Development", "Innovation"],
+        skills: ["Cyber Security", "Penetration testing", "Instructor"],
         social: {
           facebook: "https://www.facebook.com/share/test",
           linkedin: "https://www.linkedin.com/in/shahd-mourad-309a2b360",
@@ -2247,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
