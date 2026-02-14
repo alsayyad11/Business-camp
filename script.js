@@ -505,7 +505,7 @@ class NovaBootcamp {
         skills: ["Business Strategy", "Startup Development", "Innovation"],
         social: {
           facebook: "https://www.facebook.com/share/test",
-          linkedin: "https://www.linkedin.com/in/test",
+          linkedin: "https://www.linkedin.com/in/shahd-mourad-309a2b360",
       },
       },
     ];
@@ -2247,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
