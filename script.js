@@ -446,7 +446,7 @@ class NovaBootcamp {
         name: "Abdallah Altaqawy",
         bio: "A Business graduate from Mansoura University. Currently the Head of the Business Committee at Breakin Point and Founder of Cuppy startup. I've participated in various local and international competitions. Passionate about innovation and building impactful startups.",
         image: "./assets/images/abdallah.jpg",
-        skills: ["Business Strategy", "Startup Development", "Innovation"],
+        skills: ["EX-Head of Business","Business Strategy", "Startup Development", "Innovation"],
         social: {
           facebook: "https://www.facebook.com/share/16km663qnL/",
           linkedin: "https://www.linkedin.com/in/abdullah-altaqawy-94976b285/",
@@ -457,7 +457,7 @@ class NovaBootcamp {
         name: "Ahmed M Alsayyad",
         bio: "From 0→1 | Turning ideas into scalable, market-ready MVPs | MBA Candidate | Head of Business @ Breakin Point | Agile & Mini-PMP | Strategic Business Analysis | Instructor.",
         image: "./assets/images/sayyad.jpeg",
-        skills: ["Product Manager", "From 0→1"],
+        skills: ["Head of Business","Product Manager", "From 0→1"],
         social: {
           facebook: "https://www.facebook.com/alsayyad111/",
           linkedin: "https://www.linkedin.com/in/alsayyad11/",
@@ -2247,6 +2247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🚀 NOVA Business Bootcamp loaded successfully!');
 });
+
 
 
 
